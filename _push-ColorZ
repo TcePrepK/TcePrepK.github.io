@@ -1,4 +1,4 @@
-robocopy "../shapez.io/build/" "./ColorZ-ShrimpEdition" /S
+robocopy "../shapez.io/build/" "./shapez/ColorZ-ShrimpEdition" /S
 
 git add -A
 

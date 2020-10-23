@@ -4,6 +4,6 @@ robocopy "../shapez.io/build/" "./shapez/ColorZ-ShrimpEdition" /S
 
 git add -A
 
-git commit -m "_push-built"
+git commit -m "_push-ColorZ"
 
 git push

@@ -7,3 +7,5 @@ git add -A
 git commit -m "_push-ColorZ"
 
 git push
+
+while true:

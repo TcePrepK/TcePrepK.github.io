@@ -1,0 +1,7 @@
+robocopy "../shapez.io/build/" "./ColorZ-ShrimpEdition" /S
+
+git add -A
+
+git commit -m "_push-built"
+
+git push

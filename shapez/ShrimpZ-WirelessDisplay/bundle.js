@@ -42467,6 +42467,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_draw_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../core/draw_utils */ "./src/js/core/draw_utils.js");
 /* harmony import */ var _core_global_registries__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../core/global_registries */ "./src/js/core/global_registries.js");
 /* harmony import */ var _building_codes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./building_codes */ "./src/js/game/building_codes.js");
+/* harmony import */ var _components_wireless_display__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/wireless_display */ "./src/js/game/components/wireless_display.js");
+
 
 
 
@@ -42524,6 +42526,7 @@ class Entity extends _savegame_serialization__WEBPACK_IMPORTED_MODULE_3__["Basic
      * @returns {import("../savegame/serialization").Schema}
      */
     static getSchema() {
+        console.log(_savegame_serialization__WEBPACK_IMPORTED_MODULE_3__["types"]);
         return {
             uid: _savegame_serialization__WEBPACK_IMPORTED_MODULE_3__["types"].uint,
             components: _savegame_serialization__WEBPACK_IMPORTED_MODULE_3__["types"].keyValueMap(_savegame_serialization__WEBPACK_IMPORTED_MODULE_3__["types"].objData(_core_global_registries__WEBPACK_IMPORTED_MODULE_7__["gComponentRegistry"]), false),
@@ -42534,6 +42537,7 @@ class Entity extends _savegame_serialization__WEBPACK_IMPORTED_MODULE_3__["Basic
      * Returns a clone of this entity
      */
     clone() {
+        const wireless_code = this.wireless_code;
         const staticComp = this.components.StaticMapEntity;
         const buildingData = Object(_building_codes__WEBPACK_IMPORTED_MODULE_8__["getBuildingDataFromCode"])(staticComp.code);
 
@@ -42544,6 +42548,7 @@ class Entity extends _savegame_serialization__WEBPACK_IMPORTED_MODULE_3__["Basic
             rotation: staticComp.rotation,
             rotationVariant: buildingData.rotationVariant,
             variant: buildingData.variant,
+            wirelessCode: this.wireless_code,
         });
 
         for (const key in this.components) {
@@ -55840,7 +55845,7 @@ class MetaBuilding {
      * @param {number} param0.rotationVariant Rotation variant
      * @param {string} param0.variant
      */
-    createEntity({ root, origin, rotation, originalRotation, rotationVariant, variant }) {
+    createEntity({ root, origin, rotation, originalRotation, rotationVariant, variant, wirelessCode }) {
         const entity = new _entity__WEBPACK_IMPORTED_MODULE_5__["Entity"](root);
         entity.layer = this.getLayer();
         entity.addComponent(
@@ -55854,6 +55859,9 @@ class MetaBuilding {
         );
         this.setupEntityComponents(entity, root);
         this.updateVariants(entity, rotationVariant, variant);
+        if (wirelessCode) {
+            entity.wireless_code = wirelessCode;
+        }
         return entity;
     }
 
@@ -59232,7 +59240,6 @@ class ConstantSignalSystem extends _game_system_with_filter__WEBPACK_IMPORTED_MO
             } else {
                 constantComp.signal = this.parseSignalCode(signalValueInput.getValue());
             }
-            console.log(constantComp);
         };
 
         dialog.buttonSignals.ok.add(closeHandler);
@@ -63529,6 +63536,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var logrocket__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! logrocket */ "./node_modules/logrocket/dist/build.umd.js");
 /* harmony import */ var logrocket__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(logrocket__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _core_signal__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../core/signal */ "./src/js/core/signal.js");
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../core/logging */ "./src/js/core/logging.js");
+
 
 
 
@@ -63566,9 +63575,9 @@ class WirelessDisplaySystem extends _game_system_with_filter__WEBPACK_IMPORTED_M
             this.displaySprites[colorId] = _core_loader__WEBPACK_IMPORTED_MODULE_1__["Loader"].getSprite("sprites/wires/display/" + colorId + ".png");
         }
 
-        if (!this.wirelessMachineList) {
-            this.wirelessMachineList = [];
-        }
+        this.wirelessMachineList = {};
+
+        this.displayNumber = 0;
     }
 
     /**
@@ -63621,7 +63630,7 @@ class WirelessDisplaySystem extends _game_system_with_filter__WEBPACK_IMPORTED_M
                     entity.wireless_code = signalValueInput.getValue();
                 } else if (signalValueInput.getValue() && entity.components.WiredPins){
                     entity.wireless_code = signalValueInput.getValue();
-                    this.wirelessMachineList.push(entity);
+                    this.wirelessMachineList[entity.wireless_code] = entity;
                 }
             };
 
@@ -63690,41 +63699,42 @@ class WirelessDisplaySystem extends _game_system_with_filter__WEBPACK_IMPORTED_M
         const contents = chunk.containedEntitiesByLayer.regular;
         for (let i = 0; i < contents.length; ++i) {
             const entity_a = contents[i];
-            //console.log(entity_a.wireless_code);
             if (entity_a && !entity_a.components.WiredPins && entity_a.components.WirelessDisplay) {
-                for (let j = 0; j < this.wirelessMachineList.length; ++j) {
-                    const entity_b = this.wirelessMachineList[j];
-                    if (entity_a.wireless_code == entity_b.wireless_code) {
-                        const origin = entity_a.components.StaticMapEntity.origin;
-                        const pinsComp = entity_b.components.WiredPins;
-                        const network = pinsComp.slots[0].linkedNetwork;
-
-                        if (!network) {
-                            continue;
-                        }
-
-                        const value = this.getDisplayItem(network.currentValue);
-        
-                        if (!value) {
-                            continue;
-                        }
-
-                        if (value.getItemType()) {
-                            if (value.getItemType() === "color") {
-                                this.displaySprites[/** @type {ColorItem} */ (value).color].drawCachedCentered(
-                                    parameters,
-                                    (origin.x + 0.5) * _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"].tileSize,
-                                    (origin.y + 0.5) * _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"].tileSize,
-                                    _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"].tileSize
-                                );
-                            } else if (value.getItemType() === "shape") {
-                                value.drawItemCenteredClipped(
-                                    (origin.x + 0.5) * _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"].tileSize,
-                                    (origin.y + 0.5) * _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"].tileSize,
-                                    parameters,
-                                    30
-                                );
-                            }
+                const entity_b = this.wirelessMachineList[entity_a.wireless_code];
+                if (entity_b) {
+                    if (!this.allEntities.includes(entity_b)) {
+                        this.wirelessMachineList[entity_b] = undefined;
+                        return;
+                    }
+                    const origin = entity_a.components.StaticMapEntity.origin;
+                    const pinsComp = entity_b.components.WiredPins;
+                    const network = pinsComp.slots[0].linkedNetwork;
+    
+                    if (!network) {
+                        continue;
+                    }
+    
+                    const value = this.getDisplayItem(network.currentValue);
+    
+                    if (!value) {
+                        continue;
+                    }
+    
+                    if (value.getItemType()) {
+                        if (value.getItemType() === "color") {
+                            this.displaySprites[/** @type {ColorItem} */ (value).color].drawCachedCentered(
+                                parameters,
+                                (origin.x + 0.5) * _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"].tileSize,
+                                (origin.y + 0.5) * _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"].tileSize,
+                                _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"].tileSize
+                            );
+                        } else if (value.getItemType() === "shape") {
+                            value.drawItemCenteredClipped(
+                                (origin.x + 0.5) * _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"].tileSize,
+                                (origin.y + 0.5) * _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"].tileSize,
+                                parameters,
+                                30
+                            );
                         }
                     }
                 }

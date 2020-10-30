@@ -6,4 +6,4 @@ git add -A
 
 git commit -m "_push-ShrimpZ"
 
-git push
+git push --hard

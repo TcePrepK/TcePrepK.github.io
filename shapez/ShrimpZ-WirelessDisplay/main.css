@@ -3675,6 +3675,45 @@ body.uiHidden #ingame_HUD_KeybindingOverlay .binding:not(.hudToggle) {
     background: rgba(98, 27, 41, 0.8);
     color: #ff6180; }
 
+#ingame_HUD_BuildingCost {
+  position: absolute;
+  top: calc(70px * var(--ui-scale))    ;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #333;
+  z-index: 9999;
+  background: rgba(51, 52, 56, 0.9);
+  padding: calc(5px * var(--ui-scale))    ;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  width: calc(120px * var(--ui-scale))    ;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(2px * var(--ui-scale))    ; }
+  #ingame_HUD_BuildingCost .label {
+    font-size: calc(13px * var(--ui-scale));
+    line-height: calc(17px * var(--ui-scale));
+    font-weight: 400;
+    font-family: "GameFont", sans-serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase; }
+  #ingame_HUD_BuildingCost .costContainer {
+    display: flex;
+    align-items: center;
+    font-size: calc(19px * var(--ui-scale));
+    line-height: calc(21px * var(--ui-scale));
+    font-weight: 400;
+    font-family: "GameFont", sans-serif;
+    letter-spacing: 0.04em; }
+    #ingame_HUD_BuildingCost .costContainer > canvas {
+      margin-left: calc(5px * var(--ui-scale))    ;
+      width: calc(30px * var(--ui-scale))    ;
+      height: calc(30px * var(--ui-scale))    ; }
+  #ingame_HUD_BuildingCost:not(.canAfford) {
+    background: rgba(98, 27, 41, 0.8);
+    color: #ff6180; }
+
 #ingame_HUD_Waypoints_Hint {
   position: absolute;
   right: calc(10px * var(--ui-scale))    ;
@@ -4198,6 +4237,9 @@ body.uiHidden #ingame_HUD_KeybindingOverlay .binding:not(.hudToggle) {
   z-index: 240; }
 
 #ingame_HUD_BlueprintPlacer {
+  z-index: 250; }
+
+#ingame_HUD_BuildingCost {
   z-index: 250; }
 
 #ingame_HUD_Waypoints_Hint {

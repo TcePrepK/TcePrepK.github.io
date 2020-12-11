@@ -6,4 +6,4 @@ git add -A
 
 git commit -m "_push-ShrimpModBrowser"
 
-git push --force
+git push

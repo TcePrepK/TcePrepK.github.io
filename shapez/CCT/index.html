@@ -26,26 +26,16 @@
     <meta http-equiv="Expires" content="0">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="canonical" href="https://shapez.io">
-    <link rel="preconnect" href="https://api-staging.shapez.io" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="none" onload="this.media=&#34;all&#34;" href="/v/5881f85e/main.css" integrity="sha256-rw8eQq2WcuM/rLySrWJc5c3Z0wj7JJxviQw7oCkqnQg=">
-    <script src="https://www.googletagmanager.com/gtag/js?id=UA-165342524-1" async></script>
-    <script>
-        function gtag() {
-            dataLayer.push(arguments)
-        }
-        window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "UA-165342524-1", {
-            anonymize_ip: !0
-        })
-    </script>
-    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-M5NHCV7" async></script>
-    <link rel="preload" href="/v/5881f85e/res/fonts/GameFont.woff2" crossorigin="anonymous" as="font">
+    <link rel="preconnect" href="http://localhost:5005" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="none" onload="this.media=&#34;all&#34;" href="main.css">
+    <link rel="preload" href="res/fonts/GameFont.woff2" crossorigin="anonymous" as="font">
     <style type="text/css">
         @font-face {
             font-family: GameFont;
             font-style: normal;
             font-weight: 400;
             font-display: swap;
-            src: url(/v/5881f85e/res/fonts/GameFont.woff2) format('woff2')
+            src: url(res/fonts/GameFont.woff2) format('woff2')
         }
 
         #ll_fp {
@@ -90,10 +80,10 @@
         }
     </style>
     <script type="text/javascript">
-        var bundleSrc = "/v/5881f85e/bundle.js",
-            bundleSrcTranspiled = "/v/5881f85e/bundle-transpiled.js",
-            bundleIntegrity = "sha256-V57U1BMciw+uwlpg+I+4yETCbV41A2lJYccyYsKsMyE=",
-            bundleIntegrityTranspiled = "sha256-cQjBX46NwlOj7uCUpp7CHpD1lJ1PXPDJUDYM/H7ivT8=";
+        var bundleSrc = "bundle.js",
+            bundleSrcTranspiled = "bundle-transpiled.js",
+            bundleIntegrity = null,
+            bundleIntegrityTranspiled = null;
         ! function() {
             var e = null,
                 n = !1;

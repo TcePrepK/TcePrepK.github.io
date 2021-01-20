@@ -25425,16 +25425,16 @@ class FormCommandInput extends FormElement {
                     spellcheck="false"
                     class="input-text"
                     onkeydown="if(event.keyCode===9) {
-                        var v=this.value,
-                            s=this.selectionStart,
-                            e=this.selectionEnd;
-                        this.value=v.substring(0, s)+'\t'+v.substring(e);
-                        this.selectionStart=this.selectionEnd=s+1;
+                        var v = this.value,
+                            s = this.selectionStart,
+                            e = this.selectionEnd;
+                        this.value = v.substring(0, s) + '    ' + v.substring(e);
+                        this.selectionStart = this.selectionEnd = s + 4;
                         return false;
                     }"
-                    placeholder="${this.placeholder.replace(/["\\]+/gi, "")}"
+                    placeholder="${this.placeholder}"
                     data-formId="${this.id}"
-                >${this.defaultValue.replace(/["\\]+/gi, "")}</textarea>
+                >${this.defaultValue}</textarea>
             </div>
         `;
     }
@@ -27614,7 +27614,7 @@ class StaleAreaDetector {
      */
     update() {
         if (this.staleArea) {
-            logger.log(this.name, "is recomputing", this.staleArea.toString());
+            //logger.log(this.name, "is recomputing", this.staleArea.toString());
             if ( true && _config__WEBPACK_IMPORTED_MODULE_2__["globalConfig"].debug.renderChanges) {
                 this.root.hud.parts.changesDebugger.renderChange(this.name, this.staleArea, "#fd145b");
             }
@@ -42655,9 +42655,12 @@ class HUDBuildingPlacer extends _building_placer_logic__WEBPACK_IMPORTED_MODULE_
             parameters.context.fillStyle = "rgba(255, 0, 0, 0.2)";
         }
 
+        const mouseTileX = entityBounds.x; //(worldPos.x - globalConfig.tileSize / 2) / globalConfig.tileSize;
+        const mouseTileY = entityBounds.y; //(worldPos.y - globalConfig.tileSize / 2) / globalConfig.tileSize;
+
         parameters.context.beginRoundedRect(
-            entityBounds.x * _core_config__WEBPACK_IMPORTED_MODULE_1__["globalConfig"].tileSize - drawBorder,
-            entityBounds.y * _core_config__WEBPACK_IMPORTED_MODULE_1__["globalConfig"].tileSize - drawBorder,
+            mouseTileX * _core_config__WEBPACK_IMPORTED_MODULE_1__["globalConfig"].tileSize - drawBorder,
+            mouseTileY * _core_config__WEBPACK_IMPORTED_MODULE_1__["globalConfig"].tileSize - drawBorder,
             entityBounds.w * _core_config__WEBPACK_IMPORTED_MODULE_1__["globalConfig"].tileSize + 2 * drawBorder,
             entityBounds.h * _core_config__WEBPACK_IMPORTED_MODULE_1__["globalConfig"].tileSize + 2 * drawBorder,
             4
@@ -44278,7 +44281,7 @@ class HUDDebugInfo extends _base_hud_part__WEBPACK_IMPORTED_MODULE_0__["BaseHUDP
      */
     onModeChanged(mode) {
         this.element.setAttribute("data-mode", mode);
-        this.versionElement.innerText = `${"1.2.2"} @ ${"dev"} @ ${"920bfdec"}`;
+        this.versionElement.innerText = `${"1.2.2"} @ ${"dev"} @ ${"a76d5f93"}`;
     }
 
     /**
@@ -56254,6 +56257,7 @@ const lineBuilding = function ({
         sy = y1 < y2 ? 1 : -1,
         err = dx + dy;
 
+    // eslint-disable-next-line no-constant-condition
     while (true) {
         setTile({
             x: x1,
@@ -56304,8 +56308,6 @@ class CommandControllerSystem extends _game_system_with_filter__WEBPACK_IMPORTED
         this.setTile = setTile;
         this.lineBuilding = lineBuilding;
         this.foundEntity = foundEntity;
-
-        _core_draw_parameters__WEBPACK_IMPORTED_MODULE_1__["DrawParameters"].context;
     }
 
     update() {
@@ -56328,7 +56330,7 @@ class CommandControllerSystem extends _game_system_with_filter__WEBPACK_IMPORTED
 
             if (status) {
                 try {
-                    this.getFunction(command)(this, _core_vector__WEBPACK_IMPORTED_MODULE_6__["Vector"], entity);
+                    this.getFunction(command)(this, _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"], _core_vector__WEBPACK_IMPORTED_MODULE_6__["Vector"], entity);
                 } catch (error) {
                     if (error instanceof Error) {
                         console.log(error);
@@ -56336,7 +56338,7 @@ class CommandControllerSystem extends _game_system_with_filter__WEBPACK_IMPORTED
                     }
                 }
 
-                this.getFunction(command)(this, _core_vector__WEBPACK_IMPORTED_MODULE_6__["Vector"], entity);
+                this.getFunction(command)(this, _core_config__WEBPACK_IMPORTED_MODULE_0__["globalConfig"], _core_vector__WEBPACK_IMPORTED_MODULE_6__["Vector"], entity);
             }
         }
     }
@@ -56345,7 +56347,10 @@ class CommandControllerSystem extends _game_system_with_filter__WEBPACK_IMPORTED
      * @param {string} val
      */
     getFunction(val) {
-        return new Function("{ root, variables, setTile, lineBuilding }, Vector, entity", val);
+        return new Function(
+            "{ root, variables, setTile, lineBuilding, foundEntity }, globalConfig, Vector, entity",
+            val
+        );
     }
 
     /**
@@ -61630,8 +61635,8 @@ if (window.coreThreadLoadedCb) {
 // }
 
 console.log(
-    `%cshapez.io ️%c\n© 2020 Tobias Springer IT Solutions\nCommit %c${"920bfdec"}%c on %c${new Date(
-        1610710399509
+    `%cshapez.io ️%c\n© 2020 Tobias Springer IT Solutions\nCommit %c${"a76d5f93"}%c on %c${new Date(
+        1611140663040
     ).toLocaleString()}\n`,
     "font-size: 35px; font-family: Arial;font-weight: bold; padding: 10px 0;",
     "color: #aaa",
@@ -70440,7 +70445,7 @@ class PreloadState extends _core_game_state__WEBPACK_IMPORTED_MODULE_3__["GameSt
 
                     <div class="lower">
                         <button class="resetApp styledButton">Reset App</button>
-                        <i>Build ${"1.2.2"} @ ${"920bfdec"}</i>
+                        <i>Build ${"1.2.2"} @ ${"a76d5f93"}</i>
                     </div>
                 </div>
         `;
@@ -70572,14 +70577,14 @@ class SettingsState extends _core_textual_game_state__WEBPACK_IMPORTED_MODULE_0_
 
     renderBuildText() {
         const labelVersion = this.htmlElement.querySelector(".buildVersion");
-        const lastBuildMs = new Date().getTime() - 1610710399509;
+        const lastBuildMs = new Date().getTime() - 1611140663040;
         const lastBuildText = Object(_core_utils__WEBPACK_IMPORTED_MODULE_1__["formatSecondsToTimeAgo"])(lastBuildMs / 1000.0);
 
         const version = _translations__WEBPACK_IMPORTED_MODULE_3__["T"].settings.versionBadges["dev"];
 
         labelVersion.innerHTML = `
             <span class='version'>
-                ${"1.2.2"} @ ${version} @ ${"920bfdec"}
+                ${"1.2.2"} @ ${version} @ ${"a76d5f93"}
             </span>
             <span class='buildTime'>
                 ${_translations__WEBPACK_IMPORTED_MODULE_3__["T"].settings.buildDate.replace("<at-date>", lastBuildText)}<br />
@@ -70853,7 +70858,7 @@ module.exports = function() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\asard\Documents\shapez.io\src\js\main.js */"./src/js/main.js");
+module.exports = __webpack_require__(/*! C:\Users\asard\documents\shapez.io\src\js\main.js */"./src/js/main.js");
 
 
 /***/ })

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      shapez.io shape generator
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css" media="all" />
+    <script async src="index.js"></script>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://shapez.io/favicon.ico"
+    />
+
+    <!-- just include all variants for ease of use -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Shape generator</h1>
+
+    <div class="grid">
+      <div class="col">
+        <input
+          value="C(000000)C(000000)C(000000)C(000000)"
+          id="code"
+          placeholder="shape code"
+          onkeypress="debounce(generate)"
+          onkeydown="debounce(generate)"
+          onkeyup="debounce(generate)"
+          onchange="debounce(generate)"
+        />
+        <div id="error">Error</div>
+        <br />
+
+        <div id="resultWrapper">
+          <canvas id="result" width="512" height="512"></canvas>
+        </div>
+        <button onclick="exportShape()">Export</button>
+        <button onclick="shareShape()">Share</button>
+      </div>
+      <div class="col infoBox">
+        <h2>About</h2>
+
+        <p>
+          With this tool you can generate any shape supported in shapez.io! This
+          can be useful to analyze shapes or draft new ones.
+        </p>
+
+        <h3>Instructions</h3>
+
+        <p>
+          Shapes can be generated with a <strong>short key</strong>.
+          Each shape consists of up to 4 layers, and each layers consists of 4
+          quadrants. Shape codes start from the upper right quadrant and move clockwise.
+        </p>
+        <br />
+        <p>
+          Each quadrant is described via a pair of letters - An
+          <strong>uppercase letter describing the shape</strong>, followed
+          by a <strong>lowercase letter describing its color</strong>. If the
+          quadrant is empty, <code>--</code> is used
+        </p>
+        <br />
+        <p>
+          Layers are separated via <code>:</code>, starting with the
+          lowest layer.
+        </p>
+
+        <div class="grid shapeCodes">
+          <div class="col">
+            <h3>Shape codes</h3>
+            <ul>
+              <li><code>C</code> Circle</li>
+              <li><code>R</code> Rectangle</li>
+              <li><code>W</code> Windmill / Fan</li>
+              <li><code>S</code> Star</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>color codes</h3>
+            <ul>
+              <input type="color" id="hexcolor">
+              <label id="hexlabel" for"hexcolor">#000000</label>
+            </ul>
+          </div>
+        </div>      
+		<div class="example">
+            <code></code><label>Random Shape</label>
+            <button onclick="randomShape()">Randomize</button>
+          </div>
+      </div>
+    </div>
+
+    <div class="footer">
+        This tool is open source - <a href="https://github.com/tobspr/shapez.io-viewer" target="_blank">View on Github</a>
+    </div>
+  </body>
+</html>

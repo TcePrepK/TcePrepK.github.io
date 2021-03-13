@@ -92,14 +92,14 @@
     <script type="text/javascript">
         var bundleSrc = "/v/8955c049/bundle.js",
             bundleSrcTranspiled = "/v/8955c049/bundle-transpiled.js",
-            bundleIntegrity = "sha256-VwE+gAshpneL/xTambF9awaHtjdYBXu754AAjM4xnf4=",
-            bundleIntegrityTranspiled = "sha256-GQJbrHmEd8Tt3BmHixAUplgqnzdltqRnRjdjPlLrAYY=";
+            bundleIntegrity = "sha256-3LMjQTG0RgwB4So0myf6/MAGCSYib7asZOElEqDX4YA=",
+            bundleIntegrityTranspiled = "sha256-OByqPh5xrA0XJDT54Fd5rzzBsoZTCsCSULRNfDPHdxw=";
         ! function() {
             var e = null,
                 n = !1;
 
-            function t(e, n, t, r, o) {
-                console.error("👀 Init Error:", e, n, t, r, o);
+            function r(e, n, r, t, o) {
+                console.error("👀 Init Error:", e, n, r, t, o);
                 var d = document.createElement("div");
                 d.style.position = "fixed", d.style.top = "0", d.style.right = "0", d.style.bottom = "0", d.style.left = "0", d.style.zIndex = "29999", d.style.backgroundColor = "#222429", d.style.display = "flex", d.style.justifyContent = "center", d.style.alignItems = "center";
                 var l = document.createElement("div");
@@ -109,14 +109,14 @@
                 var i = document.createElement("p");
                 if (i.style.color = "#eee", i.innerText = o || e && e.message || e || "Unknown Error", l.appendChild(i), n) {
                     var s = document.createElement("p");
-                    s.style.color = "#777", s.innerText = s + ":" + t + ":" + r, l.appendChild(s)
+                    s.style.color = "#777", s.innerText = s + ":" + r + ":" + t, l.appendChild(s)
                 }
                 document.documentElement.appendChild(d)
             }
 
-            function r(e, n) {
-                var t = document.createElement("script");
-                return t.src = e, t.type = "text/javascript", t.charset = "utf-8", t.defer = !0, n && t.setAttribute("integrity", n), t
+            function t(e, n) {
+                var r = document.createElement("script");
+                return r.src = e, r.type = "text/javascript", r.charset = "utf-8", r.defer = !0, n && r.setAttribute("integrity", n), r
             }
 
             function o(e) {
@@ -128,15 +128,15 @@
             }
 
             function l() {
-                console.log("👀 Core loaded at", Math.floor(performance.now()), "ms"), e = setTimeout(d, 15e3), window.removeEventListener("error", t), window.removeEventListener("unhandledrejection", t)
+                console.log("👀 Core loaded at", Math.floor(performance.now()), "ms"), e = setTimeout(d, 15e3), window.removeEventListener("error", r), window.removeEventListener("unhandledrejection", r)
             }
-            window.addEventListener("error", t), window.addEventListener("unhandledrejection", t), window.coreThreadLoadedCb = function() {
+            window.addEventListener("error", r), window.addEventListener("unhandledrejection", r), window.coreThreadLoadedCb = function() {
                 console.log("👀 Core responded at", Math.floor(performance.now()), "ms"), clearTimeout(e), n = !(e = null)
             };
-            var a = r(bundleSrc, bundleIntegrity);
+            var a = t(bundleSrc, bundleIntegrity);
             a.addEventListener("error", function(e) {
                 console.warn("👀 ES6 Script not supported, loading transpiled code."), console.warn("👀 Error was:", e);
-                var n = r(bundleSrcTranspiled, bundleIntegrityTranspiled);
+                var n = t(bundleSrcTranspiled, bundleIntegrityTranspiled);
                 n.addEventListener("error", o), n.addEventListener("load", l), document.head.appendChild(n)
             }), a.addEventListener("load", l), document.head.appendChild(a)
         }()

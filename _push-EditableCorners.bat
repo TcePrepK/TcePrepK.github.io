@@ -1,6 +1,6 @@
 robocopy "../shapez.io/src/" "./" "index.html"
 
-robocopy "../shapez.io/build/" "./shapez/EditableCorners" /S
+robocopy "../shapez.io/build/" "./shapez/EditableCorners/v/commithash" /S
 
 git add -A
 

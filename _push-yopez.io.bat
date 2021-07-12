@@ -1,7 +1,3 @@
-cd ../shapez.io/gulp/
-
-yarn gulp build.staging
-
 robocopy "../shapez.io/src/" "./" "index.html"
 
 robocopy "../shapez.io/build/" "./shapez/yopez.io" /S

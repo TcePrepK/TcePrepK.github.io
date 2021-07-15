@@ -1,0 +1,1 @@
+node ./shapez/index.js

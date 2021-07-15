@@ -22,7 +22,7 @@ for (const d of folders) {
     const date = statSync(d).mtime;
     html += `       
             <tr>
-                <th><a class="name" href="${href}/index.html">${d}</a></th>
+                <th><a class="name" href="${href}/">${d}</a></th>
                 <th><code class="date">${date.toISOString()}</code></th>
             </tr>`;
 }

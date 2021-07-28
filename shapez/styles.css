@@ -5,6 +5,10 @@ body {
     font-size: 16px;
 }
 
+body > * {
+    padding: 1.25rem;
+}
+
 table {
     margin-right: auto;
     margin-left: auto;

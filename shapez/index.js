@@ -14,21 +14,24 @@ let html = `<!DOCTYPE html>
             </tr>`;
 
 const blackList = ["index.js", "index.html", "styles.css"];
-let names = "";
-let dates = "";
 for (const d of folders) {
     if (blackList.includes(d)) continue;
     const href = encodeURIComponent(d);
-    const date = statSync(d).mtime;
-    html += `       
+    const date = statSync(__dirname + "/" + d).mtime;
+    const dateString = date.toISOString();
+
+    const options = { dateStyle: "full", timeStyle: "long" };
+    const readableDate = new Date(dateString).toLocaleString("en-US", options);
+
+    html += `
             <tr>
                 <th><a class="name" href="${href}/">${d}</a></th>
-                <th><code class="date">${date.toISOString()}</code></th>
+                <th><code class="date">${readableDate}</code></th>
             </tr>`;
 }
 
 html += `
-        </table>    
+        </table>
     </body>
 </html>`;
 

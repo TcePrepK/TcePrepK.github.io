@@ -1,5 +1,3 @@
-const colors = [];
-
 const RandGandBToHex = function (R, G, B) {
   var r = colorToHex(R);
   var g = colorToHex(G);
@@ -15,33 +13,13 @@ const colorToHex = function (color) {
   return hex;
 };
 
-const colorCount = 5;
-const colorMultiplier = 50;
-
-for (var R = 0; R < colorCount + 1; R++) {
-  for (var G = 0; G < colorCount + 1; G++) {
-    for (var B = 0; B < colorCount + 1; B++) {
-      var color = RandGandBToHex(
-        R * colorMultiplier,
-        G * colorMultiplier,
-        B * colorMultiplier
-      );
-      colors.push(color);
-    }
-  }
-}
-
-const enumColors = {};
-for (const i in colors) {
-  enumColors[colors[i]] = colors[i];
-}
-
 /*
  * Lots of code here is copied 1:1 from actual game files
  *
  */
 
 const maxLayer = 5;
+let scale = 1;
 
 /** @enum {string} */
 const enumSubShape = {
@@ -81,6 +59,15 @@ CanvasRenderingContext2D.prototype.beginCircle = function (x, y, r) {
   this.beginPath();
   this.arc(x, y, r, 0, 2.0 * Math.PI);
 };
+
+const canvas = /** @type {HTMLCanvasElement} */ (
+  document.getElementById("result")
+);
+
+const code = document.getElementById("code");
+
+const hexColor = document.getElementById("hexcolor");
+hexColor.addEventListener("input", watchColorPicker, false);
 
 /////////////////////////////////////////////////////
 
@@ -156,17 +143,27 @@ function fromShortKey(key) {
   return layers;
 }
 
+function updateScale(value) {
+  const max = 512;
+
+  if (value > 1) value = 1;
+  if (value < 0.25) value = 0.25;
+  scale = value;
+
+  let size = max * value;
+  canvas.width = size;
+  canvas.height = size;
+  generate();
+}
+
 function renderShape(layers) {
-  const canvas = /** @type {HTMLCanvasElement} */ (document.getElementById(
-    "result"
-  ));
   const context = canvas.getContext("2d");
 
   context.save();
   context.clearRect(0, 0, 1000, 1000);
 
-  const w = 512;
-  const h = 512;
+  const w = canvas.width;
+  const h = canvas.height;
   const dpi = 1;
 
   context.translate((w * dpi) / 2, (h * dpi) / 2);
@@ -302,18 +299,21 @@ function showError(msg) {
   }
 }
 
-// @ts-ignore
+canvas.addEventListener("wheel", (event) => {
+  const delta = event.wheelDelta;
+  const off = delta > 0 ? 0.95 : 1.05;
+
+  // scale *= off;
+
+  updateScale(scale * off);
+});
+
 window.generate = () => {
   showError(null);
-  // @ts-ignore
-  const code = document.getElementById("code").value.trim();
-
-  const hexColor = document.getElementById("hexcolor");
-  hexColor.addEventListener("input", watchColorPicker, false);
 
   let parsed = null;
   try {
-    parsed = fromShortKey(code);
+    parsed = fromShortKey(code.value.trim());
   } catch (ex) {
     showError(ex);
     return;
@@ -322,12 +322,10 @@ window.generate = () => {
   renderShape(parsed);
 };
 
-// @ts-ignore
 window.debounce = (fn) => {
   setTimeout(fn, 0);
 };
 
-// @ts-ignore
 window.addEventListener("load", () => {
   if (window.location.search) {
     const key = window.location.search.substr(1);
@@ -337,7 +335,6 @@ window.addEventListener("load", () => {
 });
 
 window.exportShape = () => {
-  const canvas = document.getElementById("result");
   const imageURL = canvas.toDataURL("image/png");
 
   const dummyLink = document.createElement("a");
@@ -361,7 +358,8 @@ window.viewShape = (key) => {
 
 window.shareShape = () => {
   const code = document.getElementById("code").value.trim();
-  const url = "https://viewer.shapez.io?" + code;
+  const url =
+    "https://https://tceprepk.github.io/shapez/ColorZ-ShapeViewer/?" + code;
   alert("You can share this url: " + url);
 };
 
@@ -376,9 +374,10 @@ function getRandomShape() {
 }
 
 function getRandomColor() {
-  return Object.values(enumColors)[
-    getRandomInt(Object.keys(enumColors).length)
-  ];
+  const r = getRandomInt(255);
+  const g = getRandomInt(255);
+  const b = getRandomInt(255);
+  return RandGandBToHex(r, g, b);
 }
 
 window.randomShape = () => {

@@ -1,88 +1,59 @@
 body {
-    margin: 0;
-    background: #bbb;
-    font-family: sans-serif;
-    font-size: 14px;
+  margin: 0;
+  background: #bbb;
+  font-family: sans-serif;
+  font-size: 16px;
 }
 
 body > * {
-    padding: 20px;
-}
+  padding: 20px;
 
-.header-name {
-    color: #eee;
-    font-size: 16px;
-    padding: 1em;
-
-    text-decoration: underline;
-}
-
-.header-date {
-    color: #eee;
-    font-size: 16px;
-    padding: 1em;
-
-    text-decoration: underline;
+  text-decoration: none;
 }
 
 table {
-    width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+th {
+  width: 50%;
+
+  padding: 0.25rem 5rem;
+}
+
+.header-name {
+  color: #fff;
+  padding: 1rem;
+
+  user-select: none;
+}
+
+.header-date {
+  color: #fff;
+  padding: 1rem;
+
+  user-select: none;
 }
 
 .name {
-    padding: 5px;
+  font-size: 0.85rem;
+
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+
+  text-decoration: underline;
+  user-select: none;
+}
+
+.name:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px;
+}
+
+.name:active {
+  box-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px 0 inset;
 }
 
 .date {
-    padding: 5px;
+  font-size: 0.75rem;
 }
-
-/* .header {
-    display: grid;
-    color: #eee;
-    font-size: 16px;
-    padding: 1em;
-} */
-
-/* .header > * {
-    position: absolute;
-    padding: 0.5em;
-    text-decoration: underline;
-
-    padding: 10px;
-    margin: 5px;
-
-    top: 0;
-} */
-
-/* .name {
-    left: 25px;
-} */
-
-/* .lastModified {
-    right: 40px;
-} */
-
-/* ul {
-    padding: 10px;
-} */
-
-/* ul li {
-    margin: 5px;
-    display: grid;
-    position: relative;
-} */
-
-/* ul li .dates {
-    position: absolute;
-    right: 0;
-} */
-
-/* a {
-    text-decoration: none;
-} */
-
-/* a:hover {
-    color: #d34343;
-    text-decoration: underline;
-} */

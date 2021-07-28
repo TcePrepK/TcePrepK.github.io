@@ -1,59 +1,67 @@
 body {
-  margin: 0;
-  background: #bbb;
-  font-family: sans-serif;
-  font-size: 16px;
-}
-
-body > * {
-  padding: 20px;
-
-  text-decoration: none;
+    margin: 0;
+    background: #5e5f67;
+    font-family: sans-serif;
+    font-size: 16px;
 }
 
 table {
-  margin-right: auto;
-  margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 th {
-  width: 50%;
+    width: 50%;
+    padding: 0.25rem 4rem;
+}
 
-  padding: 0.25rem 5rem;
+.header {
+    color: #f44;
+    font-size: 2rem;
+    font-weight: bold;
+
+    text-align: center;
 }
 
 .header-name {
-  color: #fff;
-  padding: 1rem;
+    color: #fee;
+    padding: 1rem;
 
-  user-select: none;
+    user-select: none;
 }
 
 .header-date {
-  color: #fff;
-  padding: 1rem;
+    color: #fee;
+    padding: 1rem;
 
-  user-select: none;
+    user-select: none;
 }
 
 .name {
-  font-size: 0.85rem;
+    color: #00f;
 
-  padding: 0.25rem;
-  border-radius: 0.25rem;
+    font-size: 0.85rem;
 
-  text-decoration: underline;
-  user-select: none;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+
+    padding-bottom: 1px;
+    border-bottom: 1px solid blue;
+
+    text-decoration: none;
+    user-select: none;
 }
 
 .name:hover {
-  box-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px;
+    border: none;
+
+    box-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px;
 }
 
 .name:active {
-  box-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px 0 inset;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px 0 inset;
 }
 
 .date {
-  font-size: 0.75rem;
+    font-size: 0.85rem;
 }

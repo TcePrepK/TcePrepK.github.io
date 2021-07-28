@@ -7,6 +7,7 @@ let html = `<!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="styles.css">
     <body>
+        <div class="header">Shrimp Mods</div>
         <table>
             <tr>
                 <th class="header-name">Name Of The Mods</th>

@@ -178,7 +178,7 @@ function renderShape(layers) {
 
         let off = 0.22;
         if (layerAmount > 4)
-            off = off - (off * layerAmount - 4) / (layerAmount - 1);
+            off = off - (off * (layerAmount - 4)) / (layerAmount - 1);
         const layerScale = Math.max(0.1, 0.9 - layerIndex * off);
 
         for (let quadrantIndex = 0; quadrantIndex < 4; ++quadrantIndex) {

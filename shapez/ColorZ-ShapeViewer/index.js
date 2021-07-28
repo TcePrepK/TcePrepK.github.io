@@ -360,7 +360,7 @@ window.viewShape = (key) => {
 window.shareShape = () => {
     const code = document.getElementById("code").value.trim();
     const url =
-        "https://https://tceprepk.github.io/shapez/ColorZ-ShapeViewer/?" + code;
+        "https://tceprepk.github.io/shapez/ColorZ-ShapeViewer/?" + code;
     alert("You can share this url: " + url);
 };
 

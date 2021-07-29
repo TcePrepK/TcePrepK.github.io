@@ -13,6 +13,18 @@ const colorToHex = function (color) {
     return hex;
 };
 
+const defaultColors = {
+    r: "ff666a",
+    g: "78ff66",
+    b: "66a7ff",
+    p: "dd66ff",
+    c: "00fcff",
+    y: "fcf52a",
+    u: "aaa",
+    w: "fff",
+    k: "000",
+};
+
 let scale = 1;
 
 /** @enum {string} */
@@ -71,6 +83,7 @@ function radians(degrees) {
 
 /**
  * Generates the definition from the given short key
+ * @param {String} key
  */
 function fromShortKey(key) {
     const sourceLayers = key.split(":");
@@ -78,59 +91,81 @@ function fromShortKey(key) {
 
     let layers = [];
     for (let i = 0; i < layerAmount; ++i) {
-        const text = sourceLayers[i];
-        const sourceNumber = 9 * 4;
-        if (text.length !== sourceNumber) {
-            throw new Error(
-                "Invalid layer: '" + text + "' -> must be 28 characters"
-            );
+        let text = sourceLayers[i];
+        let shapeString = text
+            .replace(/(?=\().*?(?<=\))/gm, "")
+            .replace(/--/gm, "-");
+
+        if (shapeString.length == 1) {
+            text += text.repeat(3);
+            shapeString += shapeString.repeat(3);
+        } else if (shapeString.length == 2) {
+            text += text;
+            shapeString += shapeString;
+        } else if (shapeString.length != 4) {
+            throw new Error("Shapez must have 4 corners");
         }
 
         if (text === "--".repeat(4)) {
             throw new Error("Empty layers are not allowed");
         }
 
-        var itemText = "";
-
-        for (let quad = 0; quad < 4; ++quad) {
-            var colorText = "";
-            const shapeText = text[(quad * text.length) / 4 + 0];
-            for (let j = 1; j < text.length / 4; j++) {
-                const letter = text[(quad * text.length) / 4 + j];
-                colorText += letter;
-            }
-            if (colorText.length < 8) {
-                colorText = "(" + colorText + ")";
-            }
-            itemText = itemText + shapeText + colorText;
+        const emptyString = text.replace(/[^-]*/gm, "");
+        if (emptyString.length % 2 != 0) {
+            throw new Error("Invalid shape: " + text);
         }
 
-        /** @type {ShapeLayer} */
         const quads = [null, null, null, null];
         for (let quad = 0; quad < 4; quad++) {
-            const shapeText = itemText[(quad * sourceNumber) / 4 + 0];
+            const shapeText = shapeString[quad];
             const subShape = enumShortcodeToSubShape[shapeText];
-            let colorText = "";
-            for (var j = 1; j < sourceNumber / 4; j++) {
-                const letter = itemText[(quad * sourceNumber) / 4 + j];
-                colorText += letter;
-            }
-            if (colorText.length >= 6) {
-                colorText = colorText.slice(1, 7);
-            }
-            var color = colorText;
             if (subShape) {
-                if (!color) {
-                    throw new Error("Invalid shape short key:", key);
-                }
-                quads[quad] = {
-                    subShape,
-                    color,
-                };
+                quads[quad] = { subShape };
             } else if (shapeText !== "-") {
                 throw new Error("Invalid shape key: " + shapeText);
             }
         }
+
+        const colors = [...(text.matchAll(/(?<=\().*?(?=\))/gm) || [])];
+
+        let emptyCornerAmount = 0;
+        for (let quad = 0; quad < 4; quad++) {
+            if (!quads[quad]) emptyCornerAmount++;
+        }
+
+        const emptyCorners = [...(text.matchAll(/--/gm) || [])];
+        if (emptyCorners.length != emptyCornerAmount) {
+            throw new Error("Invalid shape: " + text);
+        }
+
+        if (colors.length + emptyCornerAmount !== 4) {
+            throw new Error(
+                "Invalid color count: " + (colors.length + emptyCornerAmount)
+            );
+        }
+
+        for (let i = 0; i < colors.length; i++) {
+            const color = colors[i][0];
+            colors[i] = color;
+
+            const len = color.length;
+            if (len !== 6 && len !== 3 && len !== 1) {
+                throw new Error("Invalid color: " + color);
+            } else if (len == 1) {
+                const c = defaultColors[color];
+                if (!c) {
+                    throw new Error("Invalid color: " + color);
+                }
+                colors[i] = c;
+            }
+        }
+
+        for (let quad = 0; quad < 4; quad++) {
+            if (quads[quad]) {
+                quads[quad].color = colors.shift();
+            }
+        }
+
         layers.push(quads);
     }
 
@@ -359,8 +394,7 @@ window.viewShape = (key) => {
 
 window.shareShape = () => {
     const code = document.getElementById("code").value.trim();
-    const url =
-        "https://tceprepk.github.io/shapez/ColorZ-ShapeViewer/?" + code;
+    const url = "https://tceprepk.github.io/shapez/ColorZ-ShapeViewer/?" + code;
     alert("You can share this url: " + url);
 };
 
@@ -391,12 +425,12 @@ window.randomShape = () => {
             let randomColor = "(" + getRandomColor() + ")";
 
             if (randomShape === "-") {
-                randomColor = "--------";
+                randomColor = "-";
             }
             layertext = layertext + randomShape + randomColor;
         }
         //empty layer not allowed
-        if (layertext === "------------------------------------") {
+        if (layertext === "--".repeat(4)) {
             i--;
         } else {
             code = code + layertext + ":";

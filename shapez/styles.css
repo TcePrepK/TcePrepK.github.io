@@ -1,8 +1,12 @@
 body {
     margin: 0;
-    background: #5e5f67;
-    font-family: sans-serif;
+    /* background: #5e5f67; */
+    background: #1f1f1f;
+    font-family: "Noto Sans", "Segoe UI", "Tahoma", sans-serif;
     font-size: 16px;
+
+    color: #f4f4f4;
+    text-align: center;
 }
 
 body > * {
@@ -14,35 +18,27 @@ table {
     margin-left: auto;
 }
 
-th {
+td {
     width: 50%;
     padding: 0.25rem 4rem;
 }
 
 .header {
-    color: #f44;
+    color: #f00;
     font-size: 2rem;
+
     font-weight: bold;
-
-    text-align: center;
 }
 
-.header-name {
-    color: #fee;
+th {
+    color: #f07777;
     padding: 1rem;
 
     user-select: none;
 }
 
-.header-date {
-    color: #fee;
-    padding: 1rem;
-
-    user-select: none;
-}
-
-.name {
-    color: blue;
+a {
+    color: skyblue;
 
     font-size: 0.85rem;
 
@@ -50,24 +46,24 @@ th {
     border-radius: 0.25rem;
 
     padding-bottom: 1px;
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid skyblue;
 
     text-decoration: none;
     user-select: none;
 }
 
-.name:hover {
+a:hover {
     border: none;
 
     box-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px;
 }
 
-.name:active {
+a:active {
     box-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px 0 inset;
 
     color: red;
 }
 
-.date {
+code {
     font-size: 0.85rem;
 }

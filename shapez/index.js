@@ -26,8 +26,8 @@ for (const d of folders) {
 
     html += `
             <tr>
-                <th><a class="name" href="${href}/">${d}</a></th>
-                <th><code class="date">${readableDate}</code></th>
+                <td><a class="name" href="${href}/">${d}</a></td>
+                <td><code class="date">${readableDate}</code></td>
             </tr>`;
 }
 

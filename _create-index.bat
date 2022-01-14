@@ -1,3 +1,3 @@
-node ./shapez/index.js
+node ./index.js
 
 pause

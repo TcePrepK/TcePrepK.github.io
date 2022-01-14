@@ -27,7 +27,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="canonical" href="https://shapez.io">
     <link rel="preconnect" href="https://api-staging.shapez.io" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="none" onload="this.media=&#34;all&#34;" href="/shapez/rotatableCamera/main.css" integrity="sha256-3IEEVy1OHNPVjOLQxUQhPyQr/L5sezl3QqzZcjQuMqI=">
+    <link rel="stylesheet" type="text/css" media="none" onload="this.media=&#34;all&#34;" href="/shapez/rotatableCamera/main.css" integrity="sha256-h5Fz90cfGKTeAcqZFxHoH004ZeUQE4YoxCrre20U/lc=">
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-165342524-1" async></script>
     <script>
         function gtag() {
@@ -92,8 +92,8 @@
     <script type="text/javascript">
         var bundleSrc = "/shapez/rotatableCamera/bundle.js",
             bundleSrcTranspiled = "/shapez/rotatableCamera/bundle-transpiled.js",
-            bundleIntegrity = "sha256-ZwdG8E8tx9364pye7X0O4c304C86x8elNBIM48H37U0=",
-            bundleIntegrityTranspiled = "sha256-7Pr4S+Jh8pGJXdDAug0H1YWgGBZF4gKX8vGvQYGBEYg=";
+            bundleIntegrity = "sha256-sVrQ4dK7yprF/C1i73lYM0TJO9hvui2ShCthNNp1D40=",
+            bundleIntegrityTranspiled = "sha256-N4e+EM6nSxrcSgZW/g2h7iRHaR7ZszPCJO/TdTqaRws=";
         ! function() {
             var e = null,
                 n = !1;
@@ -130,7 +130,7 @@
             function d() {
                 console.log("👀 Core loaded at", Math.floor(performance.now()), "ms"), e = setTimeout(l, 15e3), window.removeEventListener("error", t), window.removeEventListener("unhandledrejection", t)
             }
-            window.addEventListener("error", t), window.addEventListener("unhandledrejection", t), window.coreThreadLoadedCb = function() {
+            window.location.host.indexOf("localhost") < 0 && (window.addEventListener("error", t), window.addEventListener("unhandledrejection", t)), window.coreThreadLoadedCb = function() {
                 console.log("👀 Core responded at", Math.floor(performance.now()), "ms"), clearTimeout(e), n = !(e = null)
             };
             var a = r(bundleSrc, bundleIntegrity);

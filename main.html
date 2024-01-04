@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+header{
+
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+header{
+background-color: #008080;
+width:100%;
+position: fixed;
+z-index: 5;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #008080;
+  align-items: center;
+  padding: 12px 75px;
+
+}
+
+.topnav .logo a{
+  float: left;
+  color: #f3f3f3;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+
+
+}
+
+
+.topnav a:hover {
+  background-color: #fff8dc;
+  color: red;
+}
+
+.topnav a.active {
+  background-color: #black;
+
+}
+
+.container{
+display: flex;
+justify-content: center;
+align-items: center;	
+}
+
+
+.container .center {
+  text-decoration: none;
+  font-size: 14px;	
+  user-select: none;
+  font-family: sans-serif;
+}
+
+
+
+section{
+padding: 100px;
+
+}
+section .footer{
+padding: 0px;
+}
+
+
+.row{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin: 0 auto;
+}
+
+.column{
+flex-basis: 31%;
+color: #008080;
+
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+.card:hover {
+  border: 2px solid #008080;
+}
+
+.play_container h1{
+font-size: 28px;
+}
+.about_container h1{
+font-size: 28px;
+}
+.about_container h2{
+font-size: 22px;
+font-weight: normal;
+}
+
+
+<!-- Home -->
+.home_container{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin: 0 auto;
+width: 80%;
+}
+.home_container button{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin: 0 auto;
+
+}
+.home_container .button a{
+  color: #fff8dc;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: Helvetica;
+  font-weight: bold;
+
+}
+.home_container .button button{
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 18px;
+  border: 2px solid #04AA6D;
+}
+.home_container .button button:hover{
+  background-color: red;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 18px;
+  border: 2px solid #04AA6D;
+}
+
+
+
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #008080;
+  min-height: 100px;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("img/wave(1).png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+ .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #008CBA;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.contact_container  {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+</style>
+<title>CountDown Project WebPage</title>
+</head>
+<body>
+
+<header>
+<div class="topnav">
+<div class="logo">
+  <a href="#">CountDown-Project</a> 
+</div>
+
+  <a href="#contact">Contact</a>
+  <a href="#playing">How to Play</a>
+  <a href="#about">About</a>
+  <a class="active" href="#home">Home</a>
+
+</div>
+
+</header>
+
+<!-- Home -->
+<section id="home"> 
+<div class="home_container">
+<div class="child_home">
+<h1 style="text-align:center">It's a funny game </h1>
+<h2 style="text-align:center">Download Now! </h2>
+<div class="button">
+<button onclick="myFunction()"><a href="style.css" download>Download</a></button>
+</div>
+</div>
+</div>
+
+</section>
+<!-- About -->
+<section id="about">
+<div class="about_container">
+<h1 style="text-align:center">About Us </h1>
+<h2 style="text-align:center">Our Team</h2>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Arda Şimşek</h2>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Taha Furkan Cengiz</h2>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Mücahit Yeşil</h2>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>  Mohammad Imran Yamarzada</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<!-- How to Play -->
+<section id="playing">
+<div class="play_container">
+<h1 style="text-align:center">How to Play</h1>
+<p style="text-align:left">The aim of the project is to develop a maze game, 
+in which treasures/numbers are collected while walking in it.
+</p>
+
+<p style="text-align:left">The game is played in a 23*53 game field including outer walls. 
+Game characters are P and numbers. Human player is represented by P. Computer controls the numbers.
+The aim of the game is reaching the highest score. 
+</p>
+
+<h2 style="text-align:left">Screen Shoots</h2>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="img/Screenshot_3.png" style="width:100%">
+  <div class="text">Game-1</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="img/Screenshot_3.png" style="width:100%">
+  <div class="text">Game-2</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="img/Screenshot_3.png" style="width:100%">
+  <div class="text">Game-3</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+</div>
+
+
+</section>
+
+<!-- Contact-->
+<section id="contact">
+<div class="contact_container">
+<h1 style="text-align:center">Contact</h1>
+<p style="text-align:left">ADRES:
+<br>
+Dokuz Eylül Üniversitesi 
+<br>
+Mühendislik Fakültesi
+<br>
+Bilgisayar Mühendisliği Bölümü
+<br>
+Tınaztepe Kampüsü, Buca 35390, Izmir, Turkiye 
+</p>
+
+  <form action="#home">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="country">Sınıfınız</label>
+    <select id="country" name="country">
+	<option value="australia">Hazırlık</option>
+      <option value="australia">1.sınıf</option>
+      <option value="canada">2.sınıf</option>
+      <option value="usa">3. sınıf</option>
+	  <option value="usa">4. sınıf</option>
+	  <option value="usa">Mezun</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+
+
+</div>
+
+
+</section>
+
+<!-- footer-->
+
+<footer class="footer">
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="social-icon">
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="menu">
+      <li class="menu__item"><a class="menu__link" href="#home">Home</a></li>
+      <li class="menu__item"><a class="menu__link" href="#about">About</a></li>
+      <li class="menu__item"><a class="menu__link" href="#playing">How to Play</a></li>
+      <li class="menu__item"><a class="menu__link" href="#about">Team</a></li>
+      <li class="menu__item"><a class="menu__link" href="#contact">Contact</a></li>
+
+    </ul>
+    <p>&copy;2024 tfc | All Rights Reserved</p>
+  </footer>
+  
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+
+<script>
+function myFunction() {
+  alert("dosya indiriliyor");
+  
+}
+<!-- slider-->
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+</script>
+</body>
+</html>

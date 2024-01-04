@@ -119,6 +119,7 @@ font-weight: normal;
 
 
 <!-- Home -->
+
 .home_container{
 display: flex;
 align-items: center;
@@ -152,6 +153,7 @@ margin: 0 auto;
   display: flex;
   font-size: 18px;
   border: 2px solid #04AA6D;
+  border-radius: 30px;
 }
 .home_container .button button:hover{
   background-color: red;
@@ -402,6 +404,15 @@ input[type=submit]:hover {
   background-color: #f2f2f2;
   padding: 20px;
 }
+.home_container  {
+  border-radius: 5px;
+  background-color: powderblue;
+  padding: 20px;
+  height: 50vh;
+}
+
+
+
 
 </style>
 <title>CountDown Project WebPage</title>
@@ -430,7 +441,7 @@ input[type=submit]:hover {
 <h1 style="text-align:center">It's a funny game </h1>
 <h2 style="text-align:center">Download Now! </h2>
 <div class="button">
-<button onclick="myFunction()"><a href="style.css" download>Download</a></button>
+<button onclick="downloadGame()"><a href="style.css" download>Download</a></button>
 </div>
 </div>
 </div>
@@ -552,7 +563,7 @@ Tınaztepe Kampüsü, Buca 35390, Izmir, Turkiye
     <label for="lname">Last Name</label>
     <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
-    <label for="country">Sınıfınız</label>
+    <label for="country">Class</label>
     <select id="country" name="country">
 	<option value="australia">Hazırlık</option>
       <option value="australia">1.sınıf</option>
@@ -616,9 +627,19 @@ Tınaztepe Kampüsü, Buca 35390, Izmir, Turkiye
 
 
 <script>
-function myFunction() {
-  alert("dosya indiriliyor");
-  
+function downloadGame() {
+  fetch('https://api.github.com/repos/TcePrepK/TcePrepK.github.io/releases/latest')
+      .then(response => response.json())
+      .then(data => {
+        const asset = data.assets.find(asset => asset.name == "MazeOfNumbers.zip");
+
+        if (asset) {
+          window.location.href = asset.browser_download_url;
+        } else {
+          alert('No downloadable asset found for the latest release.');
+        }
+      })
+      .catch(error => console.error('Error fetching release information:', error));
 }
 <!-- slider-->
 let slideIndex = 1;

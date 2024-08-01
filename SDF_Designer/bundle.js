@@ -1,0 +1,393 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./res/style/style.scss":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./res/style/style.scss ***!
+  \***********************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, `@keyframes ui-expand {\n  0% {\n    width: 0;\n  }\n  85% {\n    width: 14rem;\n  }\n  100% {\n    width: 15rem;\n  }\n}\n@keyframes ui-collapse {\n  0% {\n    width: 15rem;\n  }\n  85% {\n    width: 1rem;\n  }\n  100% {\n    width: 0;\n  }\n}\nbody {\n  padding: 0;\n  margin: 0;\n  overflow: hidden;\n  background: #333;\n}\n\n.main-screen {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  display: grid;\n  grid-template-areas: \"header\" \"interface\" \"footer\";\n  grid-template-rows: 1.5rem auto 1.5rem;\n  background: #444;\n}\n.main-screen > * {\n  background: #444;\n}\n.main-screen .header {\n  grid-area: header;\n}\n.main-screen .footer {\n  grid-area: footer;\n}\n.main-screen .interfaces {\n  grid-area: interface;\n  display: flex;\n}\n.main-screen .interfaces #user-interface {\n  display: flex;\n  flex-direction: column;\n  row-gap: 1rem;\n  width: 0;\n  margin: 0.5rem 0 0.5rem 1rem;\n  animation: ui-collapse 0.5s ease-out;\n}\n.main-screen .interfaces #user-interface.expanded {\n  animation: ui-expand 0.5s;\n  width: 15rem;\n}\n.main-screen .interfaces #user-interface .header {\n  width: 100%;\n  height: 4rem;\n  background: #555;\n  border-radius: 15px;\n  box-shadow: 0 0 15px #000 inset;\n}\n.main-screen .interfaces #user-interface .selection {\n  width: 100%;\n  flex-grow: 1;\n  background: #555;\n  border-radius: 15px;\n  box-shadow: 0 0 15px #000 inset;\n}\n.main-screen .interfaces .node {\n  grid-area: node;\n  position: relative;\n  background: #333;\n  flex-grow: 1;\n  margin: 0 1rem;\n  right: 0;\n  border-radius: 15px;\n  box-shadow: 0 0 15px #000 inset;\n}\n.main-screen .interfaces .node #drawer-handle {\n  position: absolute;\n  top: 50%;\n  transform: translate(calc(-0.5rem - 2px), -50%);\n  width: 3rem;\n  padding: 0.5rem;\n  cursor: pointer;\n  user-select: none;\n  filter: drop-shadow(7px 2px 4px rgba(0, 0, 0, 0.7));\n}\n\n.preload {\n  animation-duration: 0s !important;\n  transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;\n}`, \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://electronwebgl/./res/style/style.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\nmodule.exports = function (cssWithMappingToString) {\n  var list = [];\n\n  // return the list of modules as css string\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = \"\";\n      var needLayer = typeof item[5] !== \"undefined\";\n      if (item[4]) {\n        content += \"@supports (\".concat(item[4], \") {\");\n      }\n      if (item[2]) {\n        content += \"@media \".concat(item[2], \" {\");\n      }\n      if (needLayer) {\n        content += \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\");\n      }\n      content += cssWithMappingToString(item);\n      if (needLayer) {\n        content += \"}\";\n      }\n      if (item[2]) {\n        content += \"}\";\n      }\n      if (item[4]) {\n        content += \"}\";\n      }\n      return content;\n    }).join(\"\");\n  };\n\n  // import a list of modules into the list\n  list.i = function i(modules, media, dedupe, supports, layer) {\n    if (typeof modules === \"string\") {\n      modules = [[null, modules, undefined]];\n    }\n    var alreadyImportedModules = {};\n    if (dedupe) {\n      for (var k = 0; k < this.length; k++) {\n        var id = this[k][0];\n        if (id != null) {\n          alreadyImportedModules[id] = true;\n        }\n      }\n    }\n    for (var _k = 0; _k < modules.length; _k++) {\n      var item = [].concat(modules[_k]);\n      if (dedupe && alreadyImportedModules[item[0]]) {\n        continue;\n      }\n      if (typeof layer !== \"undefined\") {\n        if (typeof item[5] === \"undefined\") {\n          item[5] = layer;\n        } else {\n          item[1] = \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\").concat(item[1], \"}\");\n          item[5] = layer;\n        }\n      }\n      if (media) {\n        if (!item[2]) {\n          item[2] = media;\n        } else {\n          item[1] = \"@media \".concat(item[2], \" {\").concat(item[1], \"}\");\n          item[2] = media;\n        }\n      }\n      if (supports) {\n        if (!item[4]) {\n          item[4] = \"\".concat(supports);\n        } else {\n          item[1] = \"@supports (\".concat(item[4], \") {\").concat(item[1], \"}\");\n          item[4] = supports;\n        }\n      }\n      list.push(item);\n    }\n  };\n  return list;\n};\n\n//# sourceURL=webpack://electronwebgl/./node_modules/css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/noSourceMaps.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/noSourceMaps.js ***!
+  \**************************************************************/
+/***/ ((module) => {
+
+eval("\n\nmodule.exports = function (i) {\n  return i[1];\n};\n\n//# sourceURL=webpack://electronwebgl/./node_modules/css-loader/dist/runtime/noSourceMaps.js?");
+
+/***/ }),
+
+/***/ "./res/style/style.scss":
+/*!******************************!*\
+  !*** ./res/style/style.scss ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ \"./node_modules/style-loader/dist/runtime/styleDomAPI.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ \"./node_modules/style-loader/dist/runtime/insertBySelector.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ \"./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ \"./node_modules/style-loader/dist/runtime/insertStyleElement.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ \"./node_modules/style-loader/dist/runtime/styleTagTransform.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_style_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./style.scss */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./res/style/style.scss\");\n\n      \n      \n      \n      \n      \n      \n      \n      \n      \n\nvar options = {};\n\noptions.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());\noptions.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());\noptions.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, \"head\");\noptions.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());\noptions.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());\n\nvar update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_style_scss__WEBPACK_IMPORTED_MODULE_6__[\"default\"], options);\n\n\n\n\n       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_style_scss__WEBPACK_IMPORTED_MODULE_6__[\"default\"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_style_scss__WEBPACK_IMPORTED_MODULE_6__[\"default\"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_style_scss__WEBPACK_IMPORTED_MODULE_6__[\"default\"].locals : undefined);\n\n\n//# sourceURL=webpack://electronwebgl/./res/style/style.scss?");
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module) => {
+
+eval("\n\nvar stylesInDOM = [];\nfunction getIndexByIdentifier(identifier) {\n  var result = -1;\n  for (var i = 0; i < stylesInDOM.length; i++) {\n    if (stylesInDOM[i].identifier === identifier) {\n      result = i;\n      break;\n    }\n  }\n  return result;\n}\nfunction modulesToDom(list, options) {\n  var idCountMap = {};\n  var identifiers = [];\n  for (var i = 0; i < list.length; i++) {\n    var item = list[i];\n    var id = options.base ? item[0] + options.base : item[0];\n    var count = idCountMap[id] || 0;\n    var identifier = \"\".concat(id, \" \").concat(count);\n    idCountMap[id] = count + 1;\n    var indexByIdentifier = getIndexByIdentifier(identifier);\n    var obj = {\n      css: item[1],\n      media: item[2],\n      sourceMap: item[3],\n      supports: item[4],\n      layer: item[5]\n    };\n    if (indexByIdentifier !== -1) {\n      stylesInDOM[indexByIdentifier].references++;\n      stylesInDOM[indexByIdentifier].updater(obj);\n    } else {\n      var updater = addElementStyle(obj, options);\n      options.byIndex = i;\n      stylesInDOM.splice(i, 0, {\n        identifier: identifier,\n        updater: updater,\n        references: 1\n      });\n    }\n    identifiers.push(identifier);\n  }\n  return identifiers;\n}\nfunction addElementStyle(obj, options) {\n  var api = options.domAPI(options);\n  api.update(obj);\n  var updater = function updater(newObj) {\n    if (newObj) {\n      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap && newObj.supports === obj.supports && newObj.layer === obj.layer) {\n        return;\n      }\n      api.update(obj = newObj);\n    } else {\n      api.remove();\n    }\n  };\n  return updater;\n}\nmodule.exports = function (list, options) {\n  options = options || {};\n  list = list || [];\n  var lastIdentifiers = modulesToDom(list, options);\n  return function update(newList) {\n    newList = newList || [];\n    for (var i = 0; i < lastIdentifiers.length; i++) {\n      var identifier = lastIdentifiers[i];\n      var index = getIndexByIdentifier(identifier);\n      stylesInDOM[index].references--;\n    }\n    var newLastIdentifiers = modulesToDom(newList, options);\n    for (var _i = 0; _i < lastIdentifiers.length; _i++) {\n      var _identifier = lastIdentifiers[_i];\n      var _index = getIndexByIdentifier(_identifier);\n      if (stylesInDOM[_index].references === 0) {\n        stylesInDOM[_index].updater();\n        stylesInDOM.splice(_index, 1);\n      }\n    }\n    lastIdentifiers = newLastIdentifiers;\n  };\n};\n\n//# sourceURL=webpack://electronwebgl/./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js?");
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/insertBySelector.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertBySelector.js ***!
+  \********************************************************************/
+/***/ ((module) => {
+
+eval("\n\nvar memo = {};\n\n/* istanbul ignore next  */\nfunction getTarget(target) {\n  if (typeof memo[target] === \"undefined\") {\n    var styleTarget = document.querySelector(target);\n\n    // Special case to return head of iframe instead of iframe itself\n    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {\n      try {\n        // This will throw an exception if access to iframe is blocked\n        // due to cross-origin restrictions\n        styleTarget = styleTarget.contentDocument.head;\n      } catch (e) {\n        // istanbul ignore next\n        styleTarget = null;\n      }\n    }\n    memo[target] = styleTarget;\n  }\n  return memo[target];\n}\n\n/* istanbul ignore next  */\nfunction insertBySelector(insert, style) {\n  var target = getTarget(insert);\n  if (!target) {\n    throw new Error(\"Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.\");\n  }\n  target.appendChild(style);\n}\nmodule.exports = insertBySelector;\n\n//# sourceURL=webpack://electronwebgl/./node_modules/style-loader/dist/runtime/insertBySelector.js?");
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/insertStyleElement.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
+  \**********************************************************************/
+/***/ ((module) => {
+
+eval("\n\n/* istanbul ignore next  */\nfunction insertStyleElement(options) {\n  var element = document.createElement(\"style\");\n  options.setAttributes(element, options.attributes);\n  options.insert(element, options.options);\n  return element;\n}\nmodule.exports = insertStyleElement;\n\n//# sourceURL=webpack://electronwebgl/./node_modules/style-loader/dist/runtime/insertStyleElement.js?");
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
+  \**********************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\n\n/* istanbul ignore next  */\nfunction setAttributesWithoutAttributes(styleElement) {\n  var nonce =  true ? __webpack_require__.nc : 0;\n  if (nonce) {\n    styleElement.setAttribute(\"nonce\", nonce);\n  }\n}\nmodule.exports = setAttributesWithoutAttributes;\n\n//# sourceURL=webpack://electronwebgl/./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js?");
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/styleDomAPI.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
+  \***************************************************************/
+/***/ ((module) => {
+
+eval("\n\n/* istanbul ignore next  */\nfunction apply(styleElement, options, obj) {\n  var css = \"\";\n  if (obj.supports) {\n    css += \"@supports (\".concat(obj.supports, \") {\");\n  }\n  if (obj.media) {\n    css += \"@media \".concat(obj.media, \" {\");\n  }\n  var needLayer = typeof obj.layer !== \"undefined\";\n  if (needLayer) {\n    css += \"@layer\".concat(obj.layer.length > 0 ? \" \".concat(obj.layer) : \"\", \" {\");\n  }\n  css += obj.css;\n  if (needLayer) {\n    css += \"}\";\n  }\n  if (obj.media) {\n    css += \"}\";\n  }\n  if (obj.supports) {\n    css += \"}\";\n  }\n  var sourceMap = obj.sourceMap;\n  if (sourceMap && typeof btoa !== \"undefined\") {\n    css += \"\\n/*# sourceMappingURL=data:application/json;base64,\".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), \" */\");\n  }\n\n  // For old IE\n  /* istanbul ignore if  */\n  options.styleTagTransform(css, styleElement, options.options);\n}\nfunction removeStyleElement(styleElement) {\n  // istanbul ignore if\n  if (styleElement.parentNode === null) {\n    return false;\n  }\n  styleElement.parentNode.removeChild(styleElement);\n}\n\n/* istanbul ignore next  */\nfunction domAPI(options) {\n  if (typeof document === \"undefined\") {\n    return {\n      update: function update() {},\n      remove: function remove() {}\n    };\n  }\n  var styleElement = options.insertStyleElement(options);\n  return {\n    update: function update(obj) {\n      apply(styleElement, options, obj);\n    },\n    remove: function remove() {\n      removeStyleElement(styleElement);\n    }\n  };\n}\nmodule.exports = domAPI;\n\n//# sourceURL=webpack://electronwebgl/./node_modules/style-loader/dist/runtime/styleDomAPI.js?");
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/styleTagTransform.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
+  \*********************************************************************/
+/***/ ((module) => {
+
+eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElement) {\n  if (styleElement.styleSheet) {\n    styleElement.styleSheet.cssText = css;\n  } else {\n    while (styleElement.firstChild) {\n      styleElement.removeChild(styleElement.firstChild);\n    }\n    styleElement.appendChild(document.createTextNode(css));\n  }\n}\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack://electronwebgl/./node_modules/style-loader/dist/runtime/styleTagTransform.js?");
+
+/***/ }),
+
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst logger_1 = __webpack_require__(/*! ./renderer/core/logger */ \"./src/renderer/core/logger.ts\");\nconst main_1 = __webpack_require__(/*! ./renderer/main */ \"./src/renderer/main.ts\");\nconst logger = new logger_1.Logger(\"Index Initialization\", \"✅\");\nlogger.log(\"Renderer initialized successfully!\");\nlogger.log(\"Imported main successfully!\");\nlogger.log(\"Starting the main process...\");\nconst main = new main_1.Main();\nmain.initialize();\n\n\n//# sourceURL=webpack://electronwebgl/./src/index.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/canvas.ts":
+/*!*************************************!*\
+  !*** ./src/renderer/core/canvas.ts ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Canvas = void 0;\nconst utils_1 = __webpack_require__(/*! ./utils */ \"./src/renderer/core/utils.ts\");\nconst vector2D_1 = __webpack_require__(/*! ./vector2D */ \"./src/renderer/core/vector2D.ts\");\nconst signal_1 = __webpack_require__(/*! ./signal */ \"./src/renderer/core/signal.ts\");\nclass Canvas {\n    constructor() {\n        this.onResize = new signal_1.Signal();\n    }\n    initialize() {\n        this.mainCanvas = (0, utils_1.createCanvas)({ parent: document.body });\n        this.updateResolution();\n        this.context = this.mainCanvas.getContext(\"webgl2\");\n        (0, utils_1.checkFor)(this.context, \"Unable to initialize WebGL. Your browser or machine may not support it.\");\n        window.addEventListener(\"resize\", () => {\n            clearTimeout(this.resizeTimeout);\n            this.resizeTimeout = setTimeout(this.updateResolution.bind(this), 100);\n        });\n    }\n    updateResolution() {\n        this.WIDTH = Math.min(600, window.innerWidth * 0.8);\n        this.WIDTH = 0;\n        this.HEIGHT = this.WIDTH;\n        this.mainCanvas.width = this.WIDTH;\n        this.mainCanvas.height = this.HEIGHT;\n        this.onResize.dispatch(this.WIDTH, this.HEIGHT);\n    }\n    getContext() {\n        return this.context;\n    }\n    getResolution() {\n        return new vector2D_1.VectorI2D(this.WIDTH, this.HEIGHT);\n    }\n    getElement() {\n        return this.mainCanvas;\n    }\n}\nexports.Canvas = Canvas;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/canvas.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/fpsCounter.ts":
+/*!*****************************************!*\
+  !*** ./src/renderer/core/fpsCounter.ts ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.FPSCounter = void 0;\nclass FPSCounter {\n    constructor() {\n        this.lastTime = performance.now();\n        this.FPS = 0;\n    }\n    start() {\n        const now = performance.now();\n        const dt = now - this.lastTime;\n        this.lastTime = now;\n        this.FPS = 1000 / dt;\n        return dt;\n    }\n}\nexports.FPSCounter = FPSCounter;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/fpsCounter.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/globalVariables.ts":
+/*!**********************************************!*\
+  !*** ./src/renderer/core/globalVariables.ts ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.GlobalVariables = void 0;\nclass GlobalVariables {\n}\nexports.GlobalVariables = GlobalVariables;\nGlobalVariables.time = 0;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/globalVariables.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/logger.ts":
+/*!*************************************!*\
+  !*** ./src/renderer/core/logger.ts ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Logger = void 0;\nclass Logger {\n    constructor(name, symbol) {\n        this.renderName = true;\n        this.renderSymbol = true;\n        this.name = name;\n        this.symbol = symbol;\n    }\n    log(...messages) {\n        const texts = new Array();\n        const objects = new Array();\n        for (const msg of messages) {\n            if (typeof msg === \"string\")\n                texts.push(msg);\n            else\n                objects.push(msg);\n        }\n        console.log(this.getFixed(...texts), ...objects);\n    }\n    warn(...messages) {\n        const texts = new Array();\n        const objects = new Array();\n        for (const msg of messages) {\n            if (typeof msg === \"string\")\n                texts.push(msg);\n            else\n                objects.push(msg);\n        }\n        console.warn(this.getFixed(...texts), ...objects);\n    }\n    error(...messages) {\n        const texts = new Array();\n        const objects = new Array();\n        for (const msg of messages) {\n            if (typeof msg === \"string\")\n                texts.push(msg);\n            else\n                objects.push(msg);\n        }\n        console.error(this.getFixed(...texts), ...objects);\n    }\n    throw(...messages) {\n        throw this.getFixed(...messages);\n    }\n    toggleName() {\n        this.renderName = !this.renderName;\n    }\n    toggleSymbol() {\n        this.renderSymbol = !this.renderSymbol;\n    }\n    getFixed(...msg) {\n        if (this.renderSymbol && this.symbol) {\n            if (this.renderName)\n                return `${this.symbol} [${this.name}] ${msg} ${this.symbol}`;\n            return `${this.symbol} ${msg} ${this.symbol}`;\n        }\n        if (this.renderName)\n            return `[${this.name}] ${msg}`;\n        return `${msg}`;\n    }\n}\nexports.Logger = Logger;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/logger.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/mouse.ts":
+/*!************************************!*\
+  !*** ./src/renderer/core/mouse.ts ***!
+  \************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Mouse = exports.ButtonType = void 0;\nconst signal_1 = __webpack_require__(/*! ./signal */ \"./src/renderer/core/signal.ts\");\nvar ButtonType;\n(function (ButtonType) {\n    ButtonType[ButtonType[\"LEFT\"] = 0] = \"LEFT\";\n    ButtonType[ButtonType[\"MIDDLE\"] = 1] = \"MIDDLE\";\n    ButtonType[ButtonType[\"RIGHT\"] = 2] = \"RIGHT\";\n})(ButtonType || (exports.ButtonType = ButtonType = {}));\nclass Mouse {\n    constructor() {\n        this.x = 0;\n        this.y = 0;\n        this.onMouseButtonDown = new signal_1.Signal();\n        this.onMouseButtonUp = new signal_1.Signal();\n        this.onMouseDrag = new signal_1.Signal();\n        this.onWheelScroll = new signal_1.Signal();\n        this.isDragging = false;\n    }\n    initialize() {\n        const element = document.body;\n        element.addEventListener(\"mousemove\", e => {\n            const dx = e.clientX - this.x;\n            const dy = e.clientY - this.y;\n            this.x += dx;\n            this.y += dy;\n            if (this.isDragging)\n                this.onMouseDrag.dispatch(this.draggingButton, dx, dy);\n        });\n        element.addEventListener(\"mousedown\", e => {\n            this.onMouseButtonDown.dispatch(e.button);\n            this.isDragging = true;\n            this.draggingButton = e.button;\n        });\n        element.addEventListener(\"mouseup\", e => {\n            this.onMouseButtonUp.dispatch(e.button);\n            this.isDragging = false;\n        });\n        element.addEventListener(\"wheel\", e => {\n            this.onWheelScroll.dispatch(e.deltaY);\n        });\n    }\n}\nexports.Mouse = Mouse;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/mouse.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/signal.ts":
+/*!*************************************!*\
+  !*** ./src/renderer/core/signal.ts ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Signal = void 0;\nclass Signal {\n    constructor() {\n        this.listeners = [];\n    }\n    add(listener) {\n        this.listeners.push(listener);\n    }\n    dispatch(...args) {\n        for (const listener of this.listeners) {\n            listener(...args);\n        }\n    }\n}\nexports.Signal = Signal;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/signal.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/types.ts":
+/*!************************************!*\
+  !*** ./src/renderer/core/types.ts ***!
+  \************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Float = exports.Integer = void 0;\nclass Integer extends Number {\n    constructor(value) {\n        super(Math.floor(value));\n    }\n}\nexports.Integer = Integer;\nclass Float extends Number {\n}\nexports.Float = Float;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/types.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/utils.ts":
+/*!************************************!*\
+  !*** ./src/renderer/core/utils.ts ***!
+  \************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.checkFor = checkFor;\nexports.createElement = createElement;\nexports.createDiv = createDiv;\nexports.createButton = createButton;\nexports.createCanvas = createCanvas;\nexports.swapElements = swapElements;\nexports.toggleClass = toggleClass;\nexports.getElementById = getElementById;\nexports.fixEveryPreload = fixEveryPreload;\nexports.createHTML = createHTML;\nfunction checkFor(check, message, error = \"\") {\n    if (check === null || check === undefined) {\n        throw new Error(message + \"\\n\" + error);\n    }\n}\nfunction createElement(tagName, data, ...children) {\n    const element = document.createElement(tagName);\n    if (data !== undefined) {\n        if (data.parent !== undefined) {\n            data.parent.appendChild(element);\n            delete data.parent;\n        }\n        if (data.classes !== undefined && data.classes.length > 0) {\n            element.classList.add(...data.classes);\n            delete data.classes;\n        }\n        Object.assign(element, data);\n    }\n    element.append(...children);\n    return element;\n}\nfunction createDiv(data, ...args) {\n    return createElement(\"div\", data, ...args);\n}\nfunction createButton(data, ...args) {\n    return createElement(\"button\", data, ...args);\n}\nfunction createCanvas(data, ...args) {\n    return createElement(\"canvas\", data, ...args);\n}\nfunction swapElements(parent, oldElement, newElement) {\n    parent.insertBefore(newElement, oldElement);\n    parent.removeChild(oldElement);\n}\nfunction toggleClass(element, className) {\n    if (!element.classList.contains(className))\n        element.classList.add(className);\n    else\n        element.classList.remove(className);\n}\nfunction getElementById(id) {\n    return document.getElementById(id);\n}\nfunction fixEveryPreload() {\n    setTimeout(() => {\n        const preloads = document.getElementsByClassName(\"preload\");\n        for (const element of preloads) {\n            element.classList.remove(\"preload\");\n        }\n    }, 500);\n}\n// Totally stolen from GPT-4.0\nfunction createHTML(html) {\n    const parser = new DOMParser();\n    // Parse the HTML string into a document\n    const doc = parser.parseFromString(html, \"text/html\");\n    // Get the body content of the parsed document\n    const bodyContent = doc.body;\n    // Append each child element of the parsed body to the actual document body\n    while (bodyContent.firstChild) {\n        document.body.appendChild(bodyContent.firstChild);\n    }\n}\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/utils.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/vector2D.ts":
+/*!***************************************!*\
+  !*** ./src/renderer/core/vector2D.ts ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.VectorI2D = exports.Vector2D = void 0;\nclass Vector2D {\n    constructor(x, y) {\n        this.x = this.cast(x);\n        this.y = this.cast(y);\n    }\n    add(v) {\n        return new Vector2D(this.x + v.x, this.y + v.y);\n    }\n    sub(v) {\n        return new Vector2D(this.x - v.x, this.y - v.y);\n    }\n    mul(v) {\n        return new Vector2D(this.x * v.x, this.y * v.y);\n    }\n    mulScalar(n) {\n        return new Vector2D(this.x * n, this.y * n);\n    }\n    div(v) {\n        return new Vector2D(this.x / v.x, this.y / v.y);\n    }\n    mag() {\n        return Math.sqrt(this.x * this.x + this.y * this.y);\n    }\n    dot(v) {\n        return this.x * v.x + this.y * v.y;\n    }\n    cast(n) {\n        return n;\n    }\n    toString() {\n        return `(${this.x}, ${this.y})`;\n    }\n}\nexports.Vector2D = Vector2D;\nclass VectorI2D extends Vector2D {\n    cast(n) {\n        return Math.floor(n);\n    }\n}\nexports.VectorI2D = VectorI2D;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/vector2D.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/vector3D.ts":
+/*!***************************************!*\
+  !*** ./src/renderer/core/vector3D.ts ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Color = exports.VectorI3D = exports.Vector3D = void 0;\nclass Vector3D {\n    constructor(x, y, z) {\n        this.x = this.cast(x);\n        this.y = this.cast(y);\n        this.z = this.cast(z);\n    }\n    mag() {\n        return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);\n    }\n    add(v) {\n        return new Vector3D(this.x + v.x, this.y + v.y, this.z + v.z);\n    }\n    sub(v) {\n        return new Vector3D(this.x - v.x, this.y - v.y, this.z - v.z);\n    }\n    mul(v) {\n        return new Vector3D(this.x * v.x, this.y * v.y, this.z * v.z);\n    }\n    mulScalar(n) {\n        return new Vector3D(this.x * n, this.y * n, this.z * n);\n    }\n    div(v) {\n        return new Vector3D(this.x / v.x, this.y / v.y, this.z / v.z);\n    }\n    dot(v) {\n        return this.x * v.x + this.y * v.y + this.z * v.z;\n    }\n    cross(vector) {\n        const x = this.y * vector.z - this.z * vector.y;\n        const y = this.z * vector.x - this.x * vector.z;\n        const z = this.x * vector.y - this.y * vector.x;\n        return new Vector3D(x, y, z);\n    }\n    length() {\n        return Math.sqrt(this.dot(this));\n    }\n    cast(n) {\n        return n;\n    }\n    toString() {\n        return `(${this.x}, ${this.y}, ${this.z})`;\n    }\n}\nexports.Vector3D = Vector3D;\nclass VectorI3D extends Vector3D {\n    cast(n) {\n        return Math.floor(n);\n    }\n}\nexports.VectorI3D = VectorI3D;\nclass Color extends Vector3D {\n    constructor(r, g, b) {\n        super(r, g, b);\n    }\n    get r() {\n        return this.x;\n    }\n    get g() {\n        return this.y;\n    }\n    get b() {\n        return this.z;\n    }\n    set r(value) {\n        this.x = value;\n    }\n    set g(value) {\n        this.y = value;\n    }\n    set b(value) {\n        this.z = value;\n    }\n}\nexports.Color = Color;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/vector3D.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/webgl/baseShader.ts":
+/*!***********************************************!*\
+  !*** ./src/renderer/core/webgl/baseShader.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.BaseShader = void 0;\nconst utils_1 = __webpack_require__(/*! ../utils */ \"./src/renderer/core/utils.ts\");\nconst uniformManager_1 = __webpack_require__(/*! ./uniformManager */ \"./src/renderer/core/webgl/uniformManager.ts\");\nconst globalVariables_1 = __webpack_require__(/*! ../globalVariables */ \"./src/renderer/core/globalVariables.ts\");\nconst logger_1 = __webpack_require__(/*! ../logger */ \"./src/renderer/core/logger.ts\");\nclass BaseShader {\n    constructor(shaderName, vertexData, fragmentData) {\n        this.programEnabled = false;\n        this.uniformQueue = new Array();\n        this.logger = new logger_1.Logger(shaderName, \"💡\");\n        this.shaderName = shaderName;\n        this.vertexData = vertexData;\n        this.fragmentData = fragmentData;\n        const ctx = globalVariables_1.GlobalVariables.ctx;\n        const shaderProgram = ctx.createProgram();\n        (0, utils_1.checkFor)(shaderProgram, `${shaderName} program unable to initialize!`, ctx.getProgramInfoLog(shaderProgram));\n        this.program = shaderProgram;\n        this.initialize();\n    }\n    initialize() {\n        const ctx = globalVariables_1.GlobalVariables.ctx;\n        this.vertexShader = this.createShader(ctx, ctx.VERTEX_SHADER, this.vertexData);\n        this.fragmentShader = this.createShader(ctx, ctx.FRAGMENT_SHADER, this.fragmentData);\n        ctx.attachShader(this.program, this.vertexShader);\n        ctx.attachShader(this.program, this.fragmentShader);\n        ctx.linkProgram(this.program);\n        if (!ctx.getProgramParameter(this.program, ctx.LINK_STATUS)) {\n            alert(\"Unable to initialize the shader program: \" + ctx.getProgramInfoLog(this.program));\n            return;\n        }\n        this.uniformLoader = new uniformManager_1.UniformManager(this.program);\n        this.logger.log(`Shader \"${this.shaderName}\" has loaded!`);\n    }\n    beginShader() {\n        globalVariables_1.GlobalVariables.ctx.useProgram(this.program);\n        this.programEnabled = true;\n        this.handleUniformQueue();\n    }\n    stopShader() {\n        globalVariables_1.GlobalVariables.ctx.useProgram(null);\n        this.programEnabled = false;\n    }\n    loadUniform(name, data) {\n        if (this.programEnabled) {\n            this.uniformLoader.loadData(name, data);\n            return;\n        }\n        const alreadyQueued = this.uniformQueue.findIndex(a => a.name === name);\n        if (alreadyQueued >= 0) {\n            this.uniformQueue[alreadyQueued].data = data;\n            return;\n        }\n        const request = { name, data };\n        // this.logger.log(\"Shader has received uniform request!\", request);\n        this.uniformQueue.push(request);\n    }\n    handleUniformQueue() {\n        if (!this.programEnabled)\n            return;\n        while (this.uniformQueue.length > 0) {\n            const request = this.uniformQueue.shift();\n            if (!request)\n                continue;\n            this.uniformLoader.loadData(request.name, request.data);\n        }\n    }\n    createShader(gl, type, data) {\n        const shader = gl.createShader(type);\n        (0, utils_1.checkFor)(shader, \"Unable to create simulation\");\n        gl.shaderSource(shader, data);\n        gl.compileShader(shader);\n        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {\n            const info = gl.getShaderInfoLog(shader);\n            gl.deleteShader(shader);\n            this.logger.throw(info ?? \"Failed to load shader\");\n        }\n        return shader;\n    }\n}\nexports.BaseShader = BaseShader;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/webgl/baseShader.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/webgl/shaderUniform.ts":
+/*!**************************************************!*\
+  !*** ./src/renderer/core/webgl/shaderUniform.ts ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ShaderUniform = void 0;\nconst vector2D_1 = __webpack_require__(/*! ../vector2D */ \"./src/renderer/core/vector2D.ts\");\nconst vector3D_1 = __webpack_require__(/*! ../vector3D */ \"./src/renderer/core/vector3D.ts\");\nconst logger_1 = __webpack_require__(/*! ../logger */ \"./src/renderer/core/logger.ts\");\nconst uniformRegistry_1 = __webpack_require__(/*! ./uniformRegistry */ \"./src/renderer/core/webgl/uniformRegistry.ts\");\nconst types_1 = __webpack_require__(/*! ../types */ \"./src/renderer/core/types.ts\");\nconst logger = new logger_1.Logger(\"ShaderUniform\", \"💅\");\nclass ShaderUniform {\n    constructor(preInit, location) {\n        this.range = [];\n        this.step = [];\n        this.name = preInit.name;\n        this.location = location;\n        this.resolveType(preInit.type);\n        this.resolveOptions(preInit.options);\n    }\n    setUpdateResponse(response) {\n        this.updateResponse = response;\n        if (this.attachedData && this.attachedData.holder === this) {\n            // @ts-ignore\n            this.updateResponse(this.name, this.fixType(this[this.name]));\n        }\n    }\n    attachVariable(holder, variable, data = undefined) {\n        data ?? (data = holder[variable]);\n        if (data === undefined) {\n            logger.throw(`Variable \"${String(variable)}\" not found in \"${holder}\"`);\n        }\n        const typeSize = this.typeSize;\n        if (typeSize > 1) {\n            // @ts-ignore\n            holder[variable] = new Proxy(data, {\n                set: (target, prop, value) => {\n                    this.updateResponse(this.name, this.fixType(target));\n                    return Reflect.set(target, prop, value);\n                }\n            });\n            data = holder[variable];\n        }\n        // @ts-ignore\n        holder[`uniform_${variable}`] = data;\n        Object.defineProperty(holder, variable, {\n            // @ts-ignore\n            get: () => holder[`uniform_${variable}`]?.valueOf(),\n            set: (value) => {\n                // @ts-ignore\n                holder[`uniform_${variable}`] = value;\n                this.updateResponse(this.name, this.fixType(value));\n            }\n        });\n        this.attachedData = { holder, variable };\n        if (this.updateResponse)\n            this.updateResponse(this.name, this.fixType(data));\n    }\n    loadData(newData) {\n        uniformRegistry_1.UniformRegistry.load(this.location, newData);\n    }\n    fixType(data) {\n        if (typeof data !== \"number\")\n            return data;\n        if (this.type === types_1.Integer)\n            return new types_1.Integer(data);\n        return new types_1.Float(data);\n    }\n    resolveOptions(options) {\n        if (!options)\n            return;\n        const colorMatch = options.match(ShaderUniform.COLOR_REGEX);\n        const sliderMatch = options.match(ShaderUniform.SLIDER_REGEX);\n        if (sliderMatch) {\n            const range = sliderMatch[0];\n            const stripped = range.replace(/[[\\]]/g, \"\");\n            const allOptions = stripped.split(\":\").map(a => a.replace(/[()]/g, \"\"));\n            if (allOptions.length < 2)\n                return;\n            const minVals = allOptions[0].split(\",\").map(Number);\n            const maxVals = allOptions[1].split(\",\").map(Number);\n            const minimums = [0, 0, 0].map((_, i) => Math.min(minVals[i], maxVals[i]));\n            const maximums = [0, 0, 0].map((_, i) => Math.max(minVals[i], maxVals[i]));\n            this.range.push(new this.type(...minimums), new this.type(...maximums));\n            const stepVals = allOptions[2]?.split(\",\").map(Number);\n            this.step.push(...stepVals ?? []);\n        }\n        else if (this.type === vector3D_1.Vector3D && colorMatch) {\n            this.type = vector3D_1.Color;\n        }\n        const initialMatch = options.match(ShaderUniform.INITIAL_REGEX);\n        if (initialMatch) {\n            const value = initialMatch[1].split(\",\").map(Number);\n            // @ts-ignore\n            this.attachVariable(this, this.name, new this.type(...value));\n            // this.attachedData[this.name] = new this.type(...value);\n        }\n    }\n    resolveType(type) {\n        const typeObj = ShaderUniform.typeMap.get(type);\n        if (!typeObj) {\n            logger.error(`Invalid/Unregistered type: ${type}`);\n            return;\n        }\n        this.type = typeObj;\n        const typeSize = ShaderUniform.typeSizeMap.get(typeObj);\n        this.typeSize = typeSize ?? 1;\n    }\n}\nexports.ShaderUniform = ShaderUniform;\nShaderUniform.INITIAL_REGEX = /<(.*)>/;\nShaderUniform.COLOR_REGEX = /RGB\\s+<(\\d+(\\.\\d+)?,\\s*\\d+(\\.\\d+)?,\\s*\\d+(\\.\\d+)?)>/;\nShaderUniform.SLIDER_REGEX = /\\[.*]/;\nShaderUniform.typeMap = new Map();\nShaderUniform.typeSizeMap = new Map();\n(() => {\n    ShaderUniform.typeMap.set(\"int\", types_1.Integer);\n    ShaderUniform.typeMap.set(\"float\", types_1.Float);\n    ShaderUniform.typeMap.set(\"vec2\", vector2D_1.Vector2D);\n    ShaderUniform.typeMap.set(\"ivec2\", vector2D_1.VectorI2D);\n    ShaderUniform.typeMap.set(\"vec3\", vector3D_1.Vector3D);\n    ShaderUniform.typeMap.set(\"ivec3\", vector3D_1.VectorI3D);\n    ShaderUniform.typeSizeMap.set(vector2D_1.Vector2D, 2);\n    ShaderUniform.typeSizeMap.set(vector2D_1.VectorI2D, 2);\n    ShaderUniform.typeSizeMap.set(vector3D_1.Vector3D, 3);\n    ShaderUniform.typeSizeMap.set(vector3D_1.VectorI3D, 3);\n    ShaderUniform.typeSizeMap.set(vector3D_1.Color, 3);\n})();\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/webgl/shaderUniform.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/webgl/uniformBuffer.ts":
+/*!**************************************************!*\
+  !*** ./src/renderer/core/webgl/uniformBuffer.ts ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.UniformBuffer = void 0;\nconst globalVariables_1 = __webpack_require__(/*! ../globalVariables */ \"./src/renderer/core/globalVariables.ts\");\nclass UniformBuffer {\n    constructor(program, name, data, boundLocation) {\n        this.program = program;\n        this.name = name;\n        this.boundLocation = boundLocation;\n        this.data = data;\n        const ctx = globalVariables_1.GlobalVariables.ctx;\n        this.buffer = ctx.createBuffer();\n        ctx.bindBuffer(ctx.UNIFORM_BUFFER, this.buffer);\n        // ctx.bufferData(ctx.UNIFORM_BUFFER, this.data.length, ctx.STATIC_DRAW);\n        // ctx.bindBufferRange(ctx.UNIFORM_BUFFER, this.boundLocation, this.buffer, 0, this.data.length);\n        ctx.bufferData(ctx.UNIFORM_BUFFER, this.data, ctx.DYNAMIC_DRAW);\n        ctx.bindBuffer(ctx.UNIFORM_BUFFER, null);\n        ctx.bindBufferBase(ctx.UNIFORM_BUFFER, this.boundLocation, this.buffer);\n    }\n    update(data, offset = 0) {\n        this.data.set(data, offset);\n        console.log(this.data);\n        const ctx = globalVariables_1.GlobalVariables.ctx;\n        ctx.bindBuffer(ctx.UNIFORM_BUFFER, this.buffer);\n        ctx.bufferSubData(ctx.UNIFORM_BUFFER, 0, this.data, 0, this.data.length);\n        ctx.bindBuffer(ctx.UNIFORM_BUFFER, null);\n        ctx.bindBufferBase(ctx.UNIFORM_BUFFER, this.boundLocation, this.buffer);\n    }\n    bind() {\n        const ctx = globalVariables_1.GlobalVariables.ctx;\n        ctx.uniformBlockBinding(this.program, ctx.getUniformBlockIndex(this.program, this.name), this.boundLocation);\n    }\n}\nexports.UniformBuffer = UniformBuffer;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/webgl/uniformBuffer.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/webgl/uniformManager.ts":
+/*!***************************************************!*\
+  !*** ./src/renderer/core/webgl/uniformManager.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.UniformManager = void 0;\nconst globalVariables_1 = __webpack_require__(/*! ../globalVariables */ \"./src/renderer/core/globalVariables.ts\");\nconst logger_1 = __webpack_require__(/*! ../logger */ \"./src/renderer/core/logger.ts\");\nconst shaderUniform_1 = __webpack_require__(/*! ./shaderUniform */ \"./src/renderer/core/webgl/shaderUniform.ts\");\nconst uniformRegistry_1 = __webpack_require__(/*! ./uniformRegistry */ \"./src/renderer/core/webgl/uniformRegistry.ts\");\nconst logger = new logger_1.Logger(\"Uniform Loader\");\nclass UniformManager {\n    constructor(program) {\n        this.nonExistenceNames = new Set();\n        this.nameToVariable = new Map();\n        this.program = program;\n    }\n    registerUniform(preInit) {\n        const name = preInit.name;\n        const location = globalVariables_1.GlobalVariables.ctx.getUniformLocation(this.program, name);\n        if (!location) {\n            this.nonExistenceNames.add(name);\n            logger.warn(`Uniform variable \"${name}\" is not used!`);\n            return null;\n        }\n        const variable = new shaderUniform_1.ShaderUniform(preInit, location);\n        this.nameToVariable.set(name, variable);\n        return variable;\n    }\n    loadData(name, data) {\n        if (this.nonExistenceNames.has(name))\n            return;\n        const location = globalVariables_1.GlobalVariables.ctx.getUniformLocation(this.program, name);\n        if (!location) {\n            this.nonExistenceNames.add(name);\n            logger.warn(`Uniform variable \"${name}\" is not used!`);\n            return;\n        }\n        uniformRegistry_1.UniformRegistry.load(location, data);\n    }\n    attachVariable(name, holder, variable) {\n        const uniform = this.getUniform(name);\n        if (!uniform)\n            return;\n        uniform.attachVariable(holder, variable);\n    }\n    getUniform(name) {\n        if (this.nonExistenceNames.has(name))\n            return;\n        const uniform = this.nameToVariable.get(name);\n        if (!uniform) {\n            logger.warn(`Uniform variable \"${name}\" does not exist!`);\n            this.nonExistenceNames.add(name);\n        }\n        return uniform;\n    }\n}\nexports.UniformManager = UniformManager;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/webgl/uniformManager.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/core/webgl/uniformRegistry.ts":
+/*!****************************************************!*\
+  !*** ./src/renderer/core/webgl/uniformRegistry.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n/* eslint-disable */\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.UniformRegistry = void 0;\nconst utils_1 = __webpack_require__(/*! ../utils */ \"./src/renderer/core/utils.ts\");\nconst types_1 = __webpack_require__(/*! ../types */ \"./src/renderer/core/types.ts\");\nconst vector2D_1 = __webpack_require__(/*! ../vector2D */ \"./src/renderer/core/vector2D.ts\");\nconst globalVariables_1 = __webpack_require__(/*! ../globalVariables */ \"./src/renderer/core/globalVariables.ts\");\nconst vector3D_1 = __webpack_require__(/*! ../vector3D */ \"./src/renderer/core/vector3D.ts\");\nclass UniformRegistry {\n    static initialize() {\n        const ctx = globalVariables_1.GlobalVariables.ctx;\n        this.loadMethods.set(Number, (loc, v) => ctx.uniform1f(loc, v));\n        this.loadMethods.set(types_1.Float, (loc, v) => ctx.uniform1f(loc, v.valueOf()));\n        this.loadMethods.set(types_1.Integer, (loc, v) => ctx.uniform1i(loc, v.valueOf()));\n        this.loadMethods.set(vector2D_1.VectorI2D, (loc, v) => ctx.uniform2i(loc, v.x, v.y));\n        this.loadMethods.set(vector2D_1.Vector2D, (loc, v) => ctx.uniform2f(loc, v.x, v.y));\n        this.loadMethods.set(vector3D_1.VectorI3D, (loc, v) => ctx.uniform3i(loc, v.x, v.y, v.z));\n        this.loadMethods.set(vector3D_1.Vector3D, (loc, v) => ctx.uniform3f(loc, v.x, v.y, v.z));\n        this.loadMethods.set(vector3D_1.Color, (loc, v) => ctx.uniform3f(loc, v.r, v.g, v.b));\n    }\n    static load(loc, val) {\n        // @ts-ignore\n        const func = this.loadMethods.get(val.constructor);\n        // @ts-ignore\n        (0, utils_1.checkFor)(func, `Load method for ${val.constructor.name} is not supported`);\n        func(loc, val);\n    }\n}\nexports.UniformRegistry = UniformRegistry;\nUniformRegistry.loadMethods = new Map();\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/core/webgl/uniformRegistry.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/main.ts":
+/*!******************************!*\
+  !*** ./src/renderer/main.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Main = void 0;\nconst canvas_1 = __webpack_require__(/*! ./core/canvas */ \"./src/renderer/core/canvas.ts\");\nconst fpsCounter_1 = __webpack_require__(/*! ./core/fpsCounter */ \"./src/renderer/core/fpsCounter.ts\");\nconst mainRenderer_1 = __webpack_require__(/*! ./simulation/renderer/mainRenderer */ \"./src/renderer/simulation/renderer/mainRenderer.ts\");\nconst globalVariables_1 = __webpack_require__(/*! ./core/globalVariables */ \"./src/renderer/core/globalVariables.ts\");\nconst mouse_1 = __webpack_require__(/*! ./core/mouse */ \"./src/renderer/core/mouse.ts\");\nconst uniformRegistry_1 = __webpack_require__(/*! ./core/webgl/uniformRegistry */ \"./src/renderer/core/webgl/uniformRegistry.ts\");\nconst UserInterface_1 = __webpack_require__(/*! ./simulation/ui/UserInterface */ \"./src/renderer/simulation/ui/UserInterface.ts\");\n__webpack_require__(/*! ../../res/style/style.scss */ \"./res/style/style.scss\");\nconst utils_1 = __webpack_require__(/*! ./core/utils */ \"./src/renderer/core/utils.ts\");\nclass Main {\n    constructor() {\n        this.fpsCounter = new fpsCounter_1.FPSCounter();\n        this.userInterface = new UserInterface_1.UserInterface();\n    }\n    initialize() {\n        const canvas = new canvas_1.Canvas();\n        const mouse = new mouse_1.Mouse();\n        canvas.initialize();\n        globalVariables_1.GlobalVariables.resolution = canvas.getResolution();\n        globalVariables_1.GlobalVariables.canvas = canvas;\n        globalVariables_1.GlobalVariables.ctx = canvas.getContext();\n        mouse.initialize();\n        globalVariables_1.GlobalVariables.mouse = mouse;\n        this.mainRenderer = new mainRenderer_1.MainRenderer();\n        uniformRegistry_1.UniformRegistry.initialize();\n        this.mainRenderer.initialize();\n        (0, utils_1.fixEveryPreload)();\n        this.startRunning();\n    }\n    startRunning() {\n        const dt = this.fpsCounter.start();\n        globalVariables_1.GlobalVariables.time += dt / 1000;\n        this.mainRenderer.frameUpdate();\n        requestAnimationFrame(() => this.startRunning());\n    }\n}\nexports.Main = Main;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/main.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/simulation/renderer/mainRenderer.ts":
+/*!**********************************************************!*\
+  !*** ./src/renderer/simulation/renderer/mainRenderer.ts ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.MainRenderer = void 0;\nconst mainShader_1 = __webpack_require__(/*! ./mainShader */ \"./src/renderer/simulation/renderer/mainShader.ts\");\nconst globalVariables_1 = __webpack_require__(/*! ../../core/globalVariables */ \"./src/renderer/core/globalVariables.ts\");\nconst uniformBuffer_1 = __webpack_require__(/*! ../../core/webgl/uniformBuffer */ \"./src/renderer/core/webgl/uniformBuffer.ts\");\nconst types_1 = __webpack_require__(/*! ../../core/types */ \"./src/renderer/core/types.ts\");\nclass MainRenderer {\n    constructor() {\n        this.vertices = new Float32Array([\n            -1.0, -1.0, 0.0, // bottom left\n            1.0, -1.0, 0.0, // bottom right\n            -1.0, 1.0, 0.0, // top left\n            1.0, 1.0, 0.0 // top right\n        ]);\n        this.mainShader = new mainShader_1.MainShader();\n    }\n    initialize() {\n        const canvas = globalVariables_1.GlobalVariables.canvas;\n        canvas.onResize.add(this.mainShader.loadResolution.bind(this.mainShader));\n        this.mainShader.loadResolution(canvas.WIDTH, canvas.HEIGHT);\n        const ctx = globalVariables_1.GlobalVariables.ctx;\n        canvas.onResize.add((width, height) => {\n            ctx.viewport(0, 0, width, height);\n        });\n        this.uniformBuffer = new uniformBuffer_1.UniformBuffer(this.mainShader.program, \"Circles\", new Float32Array(32 * 4), 0);\n        this.updateUniformBuffer([1, 1, 0, 1], 0);\n    }\n    updateUniformBuffer(data, offset = 0) {\n        this.uniformBuffer.update(data, offset);\n        this.mainShader.loadUniform(\"size\", new types_1.Integer(data.length / 4));\n        this.mainShader.beginShader();\n        this.uniformBuffer.bind();\n        this.mainShader.stopShader();\n    }\n    frameUpdate() {\n        const ctx = globalVariables_1.GlobalVariables.ctx;\n        { // Clean Screen\n            ctx.clearColor(1.0, 0.0, 0.0, 1.0);\n            ctx.clear(ctx.COLOR_BUFFER_BIT);\n        }\n        { // Main Shader\n            this.mainShader.beginShader();\n            // Create a buffer and put the vertices in it\n            const vertexBuffer = ctx.createBuffer();\n            ctx.bindBuffer(ctx.ARRAY_BUFFER, vertexBuffer);\n            ctx.bufferData(ctx.ARRAY_BUFFER, this.vertices, ctx.STATIC_DRAW);\n            const positionLocation = ctx.getAttribLocation(this.mainShader.program, \"in_position\");\n            ctx.enableVertexAttribArray(positionLocation);\n            ctx.vertexAttribPointer(positionLocation, 3, ctx.FLOAT, false, 0, 0);\n            // Draw the square\n            ctx.clear(ctx.COLOR_BUFFER_BIT);\n            ctx.drawArrays(ctx.TRIANGLE_STRIP, 0, 4);\n            this.mainShader.stopShader();\n        }\n    }\n}\nexports.MainRenderer = MainRenderer;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/simulation/renderer/mainRenderer.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/simulation/renderer/mainShader.ts":
+/*!********************************************************!*\
+  !*** ./src/renderer/simulation/renderer/mainShader.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.MainShader = void 0;\nconst baseShader_1 = __webpack_require__(/*! ../../core/webgl/baseShader */ \"./src/renderer/core/webgl/baseShader.ts\");\nconst vector2D_1 = __webpack_require__(/*! ../../core/vector2D */ \"./src/renderer/core/vector2D.ts\");\nclass MainShader extends baseShader_1.BaseShader {\n    constructor() {\n        super(\"main\", `#version 300 es\r\nprecision mediump float;\r\n\r\nin vec4 in_position;\r\n\r\nvoid main() {\r\n    gl_Position = in_position;\r\n}`, `#version 300 es\r\nprecision mediump float;\r\n\r\nstruct Circle {\r\n    vec4 data;\r\n};\r\n\r\nuniform int size;\r\nlayout(std140) uniform Circles {\r\n    Circle circles[32];\r\n};\r\n\r\nout vec4 out_color;\r\n\r\nvoid main() {\r\n    out_color = vec4(1.0, 0.0, 0.0, 1.0);\r\n    \r\n    if (size > 0) {\r\n        out_color = vec4(0.0, 1.0, 1.0, 1.0);\r\n        out_color.rgb = circles[0].data.xyz;\r\n    }\r\n}`);\n    }\n    loadResolution(width, height) {\n        this.loadUniform(\"resolution\", new vector2D_1.VectorI2D(width, height));\n    }\n}\nexports.MainShader = MainShader;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/simulation/renderer/mainShader.ts?");
+
+/***/ }),
+
+/***/ "./src/renderer/simulation/ui/UserInterface.ts":
+/*!*****************************************************!*\
+  !*** ./src/renderer/simulation/ui/UserInterface.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.UserInterface = void 0;\nconst utils_1 = __webpack_require__(/*! ../../core/utils */ \"./src/renderer/core/utils.ts\");\nclass UserInterface {\n    constructor() {\n        this.expanded = true;\n        this.toggleable = true;\n        this.body = (0, utils_1.getElementById)(\"user-interface\");\n        (0, utils_1.toggleClass)(this.body, \"expanded\");\n        const handle = (0, utils_1.getElementById)(\"drawer-handle\");\n        handle.addEventListener(\"click\", () => this.toggleExpanded());\n    }\n    toggleExpanded() {\n        if (!this.toggleable)\n            return;\n        this.toggleable = false;\n        this.expanded = !this.expanded;\n        if (this.expanded) {\n            this.getAudio(\"opening\").play();\n        }\n        else {\n            this.getAudio(\"closing\").play();\n        }\n        setTimeout(() => this.toggleable = true, 1000);\n        (0, utils_1.toggleClass)(this.body, \"expanded\");\n    }\n    getAudio(state) {\n        return (0, utils_1.getElementById)(`drawer-${state}`);\n    }\n}\nexports.UserInterface = UserInterface;\n\n\n//# sourceURL=webpack://electronwebgl/./src/renderer/simulation/ui/UserInterface.ts?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.ts");
+/******/ 	
+/******/ })()
+;

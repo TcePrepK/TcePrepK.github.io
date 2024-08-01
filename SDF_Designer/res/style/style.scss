@@ -1,0 +1,135 @@
+$background: #333;
+$foreground: #444;
+
+$interface-radius: 15px;
+$interface-foreground: #555;
+
+@keyframes ui-expand {
+    0% {
+        width: 0;
+    }
+    85% {
+        width: 14rem;
+    }
+    100% {
+        width: 15rem;
+    }
+}
+
+@keyframes ui-collapse {
+    0% {
+        width: 15rem;
+    }
+    85% {
+        width: 1rem;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: $background;
+}
+
+.main-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    display: grid;
+    grid-template-areas: "header" "interface" "footer";
+    grid-template-rows: 1.5rem auto 1.5rem;
+
+    background: $foreground;
+
+    > * {
+        background: $foreground;
+    }
+
+    .header {
+        grid-area: header;
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+
+    .interfaces {
+        grid-area: interface;
+
+        display: flex;
+
+        #user-interface {
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+            width: 0;
+
+            margin: 0.5rem 0 0.5rem 1rem;
+
+            animation: ui-collapse 0.5s ease-out;
+
+            &.expanded {
+                animation: ui-expand 0.5s;
+                width: 15rem;
+            }
+
+            .header {
+                width: 100%;
+                height: 4rem;
+
+                background: $interface-foreground;
+                border-radius: $interface-radius;
+                box-shadow: 0 0 15px #000 inset;
+            }
+
+            .selection {
+                width: 100%;
+                flex-grow: 1;
+
+                background: $interface-foreground;
+                border-radius: $interface-radius;
+                box-shadow: 0 0 15px #000 inset;
+            }
+        }
+
+        .node {
+            grid-area: node;
+
+            position: relative;
+            background: $background;
+            //width: 50%;
+            flex-grow: 1;
+            margin: 0 1rem;
+
+            right: 0;
+            border-radius: $interface-radius;
+
+            box-shadow: 0 0 15px #000 inset;
+
+            #drawer-handle {
+                position: absolute;
+                top: 50%;
+                transform: translate(calc(-0.5rem - 2px), -50%);
+
+                width: 3rem;
+
+                padding: 0.5rem;
+                cursor: pointer;
+                user-select: none;
+
+                filter: drop-shadow(7px 2px 4px rgba(0, 0, 0, .7));
+            }
+        }
+    }
+}
+
+.preload {
+    animation-duration: 0s !important;
+    transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+}

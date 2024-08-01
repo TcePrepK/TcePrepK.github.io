@@ -1,0 +1,98 @@
+@import "variables.scss";
+
+$scrollbar-background: #444;
+$scrollbar-foreground: #276b80;
+$scrollbar-hover: #2c778f;
+
+#selection {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    flex-grow: 1;
+
+    background: $interface-foreground;
+    border-radius: $interface-radius;
+    box-shadow: 0 0 15px #000 inset;
+
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 1.25rem;
+        background: $scrollbar-background;
+        border-radius: 0 $interface-radius $interface-radius 0;
+
+        box-shadow: 0 0 10px #222 inset;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $scrollbar-foreground;
+        border-radius: $interface-radius;
+
+        box-shadow: 0 0 5px #222 inset;
+
+        &:hover {
+            background: $scrollbar-hover;
+            cursor: pointer;
+        }
+    }
+
+    .node {
+        position: relative;
+
+        width: 80%;
+        min-height: 4rem;
+        background: $node-color;
+
+        border-radius: $node-radius;
+        margin: 1rem auto 0 auto;
+
+        box-shadow: 0 0 10px $background;
+
+        &::before, &::after {
+            content: " ";
+            position: absolute;
+
+            top: 0;
+
+            width: 1rem;
+            height: 100%;
+
+            background: $background;
+        }
+
+        &::before {
+            left: 0;
+
+            border-radius: $node-radius 0 0 $node-radius;
+        }
+
+        &::after {
+            right: 0;
+
+            border-radius: 0 $node-radius $node-radius 0;
+        }
+
+        .name {
+            position: absolute;
+
+            width: calc(100% - 1rem);
+            border-top-left-radius: $node-radius;
+            user-select: none;
+
+            background: #555;
+            text-align: center;
+
+            text-transform: uppercase;
+            color: $node-text-color;
+            font-size: 1.2rem;
+            font-family: Arial, Helvetica, sans-serif;
+
+            &::before {
+                content: " ";
+            }
+        }
+    }
+}

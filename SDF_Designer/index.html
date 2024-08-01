@@ -7,21 +7,18 @@
     <!--        <link rel="stylesheet" href="res/style/style.css">-->
 </head>
 <body>
-<div id="main-screen">
-    <div class="header"></div>
-    <div class="interfaces">
-        <div id="user-interface" class="preload">
-            <div class="header"></div>
-            <div class="selection"></div>
+    <div id="main-screen">
+        <div class="header"></div>
+        <div class="interfaces">
+            <div id="user-interface" class="preload"></div>
+            <div id="node-playground">
+                <audio id="drawer-opening" src="res/audio/drawer_opening.mp3" preload="auto"></audio>
+                <img id="drawer-handle" width="0" src="res/svg/handle.svg" alt="Handle not loaded" />
+                <audio id="drawer-closing" src="res/audio/drawer_closing.mp3" preload="auto"></audio>
+            </div>
         </div>
-        <div class="node">
-            <audio id="drawer-opening" src="res/audio/drawer_opening.mp3" preload="auto"></audio>
-            <img id="drawer-handle" width="0" src="res/svg/handle.svg" alt="Handle not loaded" />
-            <audio id="drawer-closing" src="res/audio/drawer_closing.mp3" preload="auto"></audio>
-        </div>
+        <div class="footer"></div>
     </div>
-    <div class="footer"></div>
-</div>
-<script src="bundle.js"></script>
-</body>
+    <script src="bundle.js"></script>
+    </body>
 </html>

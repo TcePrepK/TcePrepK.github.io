@@ -1,28 +1,35 @@
-$background: #333;
-$foreground: #444;
-
-$interface-radius: 15px;
-$interface-foreground: #555;
-
+@import "variables.scss";
 @import "errorPage.scss";
+@import "nodeSelection.scss";
+@import "nodePlayground.scss";
 
+$ui-width: min(15rem, 100% - 15rem);
 @keyframes ui-expand {
     0% {
         width: 0;
     }
-    85% {
-        width: 14rem;
+    70% {
+        width: calc($ui-width - 1rem);
+    }
+    75%, 100% {
+        width: $ui-width;
+    }
+}
+
+@keyframes ui-nodes-expand {
+    0%, 75% {
+        opacity: 0;
     }
     100% {
-        width: 15rem;
+        opacity: 1;
     }
 }
 
 @keyframes ui-collapse {
-    0% {
-        width: 15rem;
+    0%, 25% {
+        width: $ui-width;
     }
-    85% {
+    95% {
         width: 1rem;
     }
     100% {
@@ -30,7 +37,24 @@ $interface-foreground: #555;
     }
 }
 
+@keyframes ui-nodes-collapse {
+    0% {
+        opacity: 1;
+    }
+    25%, 100% {
+        opacity: 0;
+    }
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
 body {
+    width: 100%;
+    height: 100%;
+
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -38,31 +62,24 @@ body {
 }
 
 #main-screen {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
     top: 0;
 
-    display: grid;
-    grid-template-areas: "header" "interface" "footer";
-    grid-template-rows: 1.5rem auto 1.5rem;
+    display: flex;
+    flex-direction: column;
 
     background: $foreground;
 
     > * {
+        height: 1.5rem;
         background: $foreground;
     }
 
-    .header {
-        grid-area: header;
-    }
-
-    .footer {
-        grid-area: footer;
-    }
-
     .interfaces {
-        grid-area: interface;
+        position: relative;
+        height: calc(100% - 3rem);
 
         display: flex;
 
@@ -75,57 +92,26 @@ body {
             margin: 0.5rem 0 0.5rem 1rem;
 
             animation: ui-collapse 0.5s ease-out;
+            #selection > * {
+                animation: ui-nodes-collapse 0.5s;
+            }
 
             &.expanded {
                 animation: ui-expand 0.5s;
-                width: 15rem;
+                width: $ui-width;
+
+                #selection > * {
+                    animation: ui-nodes-expand 0.5s;
+                }
             }
 
-            .header {
+            #header {
                 width: 100%;
                 height: 4rem;
 
                 background: $interface-foreground;
                 border-radius: $interface-radius;
                 box-shadow: 0 0 15px #000 inset;
-            }
-
-            .selection {
-                width: 100%;
-                flex-grow: 1;
-
-                background: $interface-foreground;
-                border-radius: $interface-radius;
-                box-shadow: 0 0 15px #000 inset;
-            }
-        }
-
-        .node {
-            grid-area: node;
-
-            position: relative;
-            background: $background;
-            //width: 50%;
-            flex-grow: 1;
-            margin: 0 1rem;
-
-            right: 0;
-            border-radius: $interface-radius;
-
-            box-shadow: 0 0 15px #000 inset;
-
-            #drawer-handle {
-                position: absolute;
-                top: 50%;
-                transform: translate(calc(-0.5rem - 2px), -50%);
-
-                width: 3rem;
-
-                padding: 0.5rem;
-                cursor: pointer;
-                user-select: none;
-
-                filter: drop-shadow(7px 2px 4px rgba(0, 0, 0, .7));
             }
         }
     }

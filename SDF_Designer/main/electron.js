@@ -1,14 +1,13 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const fs = require("fs");
 const path = require("path");
-const chokidar = require('chokidar');
+const chokidar = require("chokidar");
 
 /** @type {Electron.CrossProcessExports.BrowserWindow} */
 let mainWindow;
 app.whenReady().then(createWindow);
 
 const watcherArgs = [
-    ["electron.js", completeReload],
     ["../bundle.js", loadHTML],
     ["../index.html", loadHTML],
     ["../res", loadHTML],
@@ -22,10 +21,11 @@ async function createWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        icon: path.join(__dirname, "../res/images/shrimp.png"),
 
         // frame: false,
         // resizable: false,
-        show: false
+        show: false,
     });
 
     loadHTML().then(() => {
@@ -53,11 +53,4 @@ async function loadHTML() {
     if (!mainWindow) return;
     console.log("Loading HTML...");
     await mainWindow.loadFile(path.join(__dirname, "../index.html"));
-}
-
-function completeReload() {
-    if (!app) return;
-    console.log("Completely reloading app...");
-    app.relaunch();
-    app.exit();
 }

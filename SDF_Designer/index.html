@@ -7,26 +7,30 @@
 </head>
 <body>
 <div id="main-screen">
-    <div class="header"></div>
-    <div class="interfaces">
-        <div id="node-playground">
-            <div id="background">
-                <img id="background-logo" width="0" src="res/images/shrimp_grey.png" alt="Logo not loaded" />
-                <div id="background-name">SDF<br>Studio</div>
-            </div>
-            <div id="blue-screen"></div>
-        </div>
-        <div id="user-interface" class="preload">
-            <div id="header"></div>
-            <div id="selection"></div>
-            <div id="visuals">
-                <audio id="drawer-opening" src="res/audio/drawer_opening.mp3" preload="auto"></audio>
-                <img id="drawer-handle" width="0" src="res/svg/handle.svg" alt="Handle not loaded" />
-                <audio id="drawer-closing" src="res/audio/drawer_closing.mp3" preload="auto"></audio>
-            </div>
+    <div id="buffer-interface" class="expanded preload">
+        <div id="container">
+            <div class="buffer">Main Screen</div>
+            <div class="buffer">Long Name Template</div>
+            <div class="buffer">Another Template</div>
         </div>
     </div>
-    <div class="footer"></div>
+    <div id="node-playground">
+        <canvas id="playground-canvas"></canvas>
+        <div id="background">
+            <img id="background-logo" width="0" src="res/images/shrimp_grey.png" alt="Logo not loaded" />
+            <div id="background-name">SDF<br>Studio</div>
+        </div>
+        <div id="blue-screen"></div>
+    </div>
+    <div id="user-interface" class="preload">
+        <div id="header"></div>
+        <div id="selection"></div>
+        <div id="visuals">
+            <audio id="drawer-opening" src="res/audio/drawer_opening.mp3" preload="auto"></audio>
+            <img id="drawer-handle" width="0" src="res/svg/handle.svg" alt="Handle not loaded" />
+            <audio id="drawer-closing" src="res/audio/drawer_closing.mp3" preload="auto"></audio>
+        </div>
+    </div>
 </div>
 <script src="bundle.js"></script>
 </body>

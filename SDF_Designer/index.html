@@ -10,14 +10,14 @@
     <div id="interface-hit-box">
         <div id="template-interface" class="preload">
             <div id="container" class="scrollable">
-                <img id="buffer-more" width="0" src="res/svg/plus.svg" alt="Plus" />
+                <img id="buffer-more" width="0" src="static://assets/svg/plus.svg" alt="Plus"/>
             </div>
         </div>
     </div>
     <div id="node-playground">
         <canvas id="playground-canvas"></canvas>
         <div id="background">
-            <img id="background-logo" width="0" src="res/images/shrimp_grey.png" alt="Logo not loaded" />
+            <img id="background-logo" width="0" src="static://assets/images/shrimp_grey.png" alt="Logo not loaded"/>
             <div id="background-name">SDF<br>Studio</div>
         </div>
         <div id="blue-screen"></div>
@@ -26,12 +26,43 @@
         <div id="header"></div>
         <div id="selection" class="scrollable"></div>
         <div id="visuals">
-            <audio id="drawer-opening" src="res/audio/drawer_opening.mp3" preload="auto"></audio>
-            <img id="drawer-handle" width="0" src="res/svg/handle.svg" alt="Handle not loaded" />
-            <audio id="drawer-closing" src="res/audio/drawer_closing.mp3" preload="auto"></audio>
+            <audio id="drawer-opening" src="static://assets/audio/drawer_opening.mp3" preload="auto"></audio>
+            <img id="drawer-handle" width="0" src="static://assets/svg/handle.svg" alt="Handle not loaded"/>
+            <audio id="drawer-closing" src="static://assets/audio/drawer_closing.mp3" preload="auto"></audio>
         </div>
     </div>
 </div>
-<script src="bundle.js"></script>
+<script>
+    // From https://github.com/cheton/is-electron
+    function isElectron() {
+        // Renderer process
+        if (typeof window !== "undefined" && typeof window.process === "object" && window.process.type === "renderer") {
+            return true;
+        }
+
+        // Main process
+        if (typeof process !== "undefined" && typeof process.versions === "object" && !!process.versions.electron) {
+            return true;
+        }
+
+        // Detect the user agent when the `nodeIntegration` option is set to true
+        return typeof navigator === "object" && typeof navigator.userAgent === "string" && navigator.userAgent.indexOf("Electron") >= 0;
+    }
+
+    if (!isElectron()) {
+        console.log("Non electron application!");
+
+        const everything = [...document.getElementsByTagName("*")];
+        const everySrc = everything.filter(e => e.getAttribute("src") !== null);
+        for (const element of everySrc) {
+            element.setAttribute("src", element.getAttribute("src").replace("static://", ""));
+        }
+        const script = document.createElement("script");
+        script.src = "bundle.js";
+        document.body.appendChild(script);
+    } else {
+        console.log("Electron application!");
+    }
+</script>
 </body>
 </html>

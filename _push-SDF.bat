@@ -9,3 +9,5 @@ cd ../TcePrepKgithubio
 git add .
 git commit -m "SDF_Designer %short_commit_id%"
 git push
+
+pause

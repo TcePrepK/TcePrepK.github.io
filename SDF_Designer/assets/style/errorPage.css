@@ -36,6 +36,6 @@ html, body {
     font-size: 6vw;
 }
 
-span {
+.error span {
     color: #f00;
 }

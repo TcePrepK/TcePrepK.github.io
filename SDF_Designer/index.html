@@ -46,7 +46,7 @@
     </div>
     <div id="node-drag"></div>
 </div>
-<script>
+<script id="electron-gross">
     // From https://github.com/cheton/is-electron
     function isElectron() {
         // Renderer process
@@ -82,6 +82,8 @@
     } else {
         console.log("Electron application!");
     }
+
+    document.getElementById("electron-gross").remove();
 </script>
 </body>
 </html>

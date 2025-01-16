@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RustWGPU</title>
-        <style>
-            canvas {
-                background-color: black;
-            }
-        </style>
-    </head>
-    <body id="wasm-example">
-        <script type="module">
-            import init from "./pkg/rust_wgpu.js";
-            init().then(() => {
-                console.log("WASM Loaded");
-            });
-        </script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust + WebAssembly</title>
+</head>
+<body>
+    <h1>Hello from Rust and WebAssembly!</h1>
+    <script type="module">
+        import init from './pkg/rust_wgpu.js';
+
+        // Initialize the WebAssembly module
+        init().then((wasm) => {
+            console.log("WASM loaded successfully!");
+            wasm.start(); // Call your Rust-exported function
+        }).catch(console.error);
+    </script>
+</body>
 </html>

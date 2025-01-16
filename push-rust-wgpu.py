@@ -8,6 +8,7 @@ from pathlib import Path
 game_name = "RustWGPU"
 github_io_dir = Path("../TcePrepKgithubio")
 src_dir = "pkg"
+ignore_dir = "pkg/.gitignore"
 
 def get_commit_id():
     """Get the current Git commit hash."""
@@ -22,6 +23,7 @@ def copy_files(src, dest):
     """Copy files from pkg to dest, replicating the robocopy functionality."""
     src_path = Path(src)
     dest_path = Path(dest)
+    ignore_path = Path(dest / ".gitignore")
 
     if not src_path.exists():
         raise FileNotFoundError(f"Source directory {src_path} does not exist.")
@@ -29,6 +31,10 @@ def copy_files(src, dest):
     if dest_path.exists():
         shutil.rmtree(dest_path)  # Remove destination folder if it exists
     shutil.copytree(src_path, dest_path)
+
+    # If .gitignore exists, remove it
+    if ignore_path.exists():
+        ignore_path.unlink()
 
 def commit_and_push(short_commit_id):
     """Commit and push changes to the Git repository."""
